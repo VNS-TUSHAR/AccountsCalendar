@@ -92,8 +92,6 @@ public class UploadMedia extends HttpServlet {
 //            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 //            response.getWriter().write("File upload failed: " + e.getMessage());
 //        }
-
-
         Collection<Part> parts = request.getParts();
 
         for (Part part : parts) {
@@ -148,7 +146,8 @@ public class UploadMedia extends HttpServlet {
 
         String fileName = request.getParameter("fileName");
 
-//        sendMail(Task);
+        sendMail(Task);
+
 //        System.out.println("sno " + sno + "status " + status + " startDate" + startDate + " dueDate " + dueDate + " percentComplete " + percentComplete + " done " + done + " fileName " + fileName);
 ////        /usr/local/apache-tomcat-9.0.84/webapps/AccountInfo/img/
 //        response.setContentType("application/json");

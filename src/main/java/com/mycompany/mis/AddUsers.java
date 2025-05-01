@@ -27,6 +27,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class AddUsers extends HttpServlet {
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/AccountsInfo";
+
 //    private static final String JDBC_URL = "jdbc:mysql://111.118.177.68:3306/AccountsInfo";
     private static final String JDBC_USER = "reports";
     private static final String JDBC_PASSWORD = "reports@#123";
@@ -110,7 +111,7 @@ public class AddUsers extends HttpServlet {
                     return;
                 }
 
-                System.out.println("Task " + Task + " Priority " + Priority + " Status " + Status + " startDate " + startDate + " dueDate " + dueDate);
+                System.out.println("Task " + Task + " Priority " + Priority + " startDate " + startDate + " dueDate " + dueDate);
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -125,6 +126,7 @@ public class AddUsers extends HttpServlet {
                 ps.setDate(4, dueDate);
 
                 int rowsUpdated = ps.executeUpdate();
+
                 System.out.println(rowsUpdated + " New Field Inserted.");
 
                 ps.close();
@@ -141,6 +143,6 @@ public class AddUsers extends HttpServlet {
 
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to Insert task");
         }
- 
+
     }
 }

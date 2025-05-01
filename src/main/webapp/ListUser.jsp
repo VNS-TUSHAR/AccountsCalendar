@@ -70,49 +70,6 @@
         <!-- JQuery min js -->
         <script src="assets/plugins/jquery/jquery.min.js"></script>
 
-
-
-
-        <!--  <script>
-             var app_url = "https://amp.sms24hours.com";
-             var loginID = "3";
-             var gatewayName = "Alpha Messaging Platform";
-             var default_timeout = 1000;
-             //Set default pagination limit
-             var paginationLimit = [
-                 [10, 25, 50, 100, 500, 1000, 2000],
-                 [10, 25, 50, 100, 500, 1000, 2000],
-             ];
-             $.ajaxSetup({
-                 headers: {
-                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                 }
-             });
-             var jsTrans = {
-                 "JS_RULE_ENTITY_LIST": ["Message Text", "Sender Ton", "Sender NPI", "Destination TON", "Destination NPI"],
-                 "JS_SENDER_TON_LIST": ["Unknown", "International", "National", "Network Specific", "Subscriber Number", "Alphanumeric", "Abbreviated"],
-                 "JS_SENDER_NPI_LIST": {
-                     "0": "Unknown",
-                     "1": "ISDN\/Telephone numbering plan(E163\/E164)",
-                     "3": "Data Numbering plan (X.121)",
-                     "4": "Telex Numbering plan(F.69)",
-                     "6": "Land Mobile(E.212)",
-                     "8": "National Numering plan",
-                     "9": "private Numbering Plan",
-                     "10": "ERMES Numbering plan (ETSI DE\/PS 3 01-3)",
-                     "14": "Internet (IP)",
-                     "18": "WAP Client Id (to be defined by WAP Forum)"
-                 },
-                 "JS_VALIDATE_EXCEPT_SEMICOLON": "constants.validate_except_semicolon",
-                 "JS_ENTERPRISE_CUSTOMER": "0",
-                 "JS_ENTERPRISE_VENDOR": "1",
-                 "JS_ENTERPRISE_RECIPROCAL": "2",
-                 "JS_IMPORT_TYPE_DELETE": null,
-                 "JS_CONVERSATION_TYPE_LIST_RANDOM_NUMBER": "5",
-                 "JS_CONVERSATION_TYPE_LIST_SENDER_ID_TEMPLATE": "6"
-             };
-         </script> -->
-
         <!-- Internal Data tables -->
         <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
         <script src="assets/plugins/datatable/datatables.min.js"></script>
@@ -182,7 +139,7 @@
         <div id="global-loader">
             <img src="assets/img/loader.svg" class="loader-img" alt="Loader">
         </div>
-        <!-- /Loader -->
+        <!-- /Loader --> 
 
         <!-- Page -->
         <div class="page">
@@ -207,6 +164,7 @@
                                     </a>
                                 </div>
                             </li>
+
                             <li class="dropdown nav-item main-header-notification">
                                 <a class="new nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -231,6 +189,7 @@
                                     </div>
                                 </div>
                             </li>
+
                             <li class="nav-item full-screen fullscreen-button">
                                 <a class="new nav-link full-screen-link" href="javascript:void(0)"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></a>
                             </li>
@@ -734,8 +693,7 @@
                                                                 notesCell.textContent = task.Notes || 'N/A';
                                                                 row.appendChild(notesCell);
 
-
-                                                                var proofCell = document.createElement('td');
+//                                                                var proofCell = document.createElement('td');
 
 //                                                                if (task.Proof && (task.Proof.startsWith("/usr/local/") || task.Proof.startsWith("/usr/local/")))
 //                                                                {
@@ -747,26 +705,101 @@
 //                                                                    proofCell.textContent = 'N/A';
 //                                                                }
 
-                                                                if (task.Proof && (task.Proof.startsWith("/usr/local/") || task.Proof.startsWith("/usr/local/"))) {
-                                                                    var filePaths = task.Proof.split(',');
-                                                                    filePaths.forEach(function (path) {
-                                                                        var fileName = path.split('img/')[1];
-                                                                        var viewBtn = document.createElement('button');
-                                                                        viewBtn.className = 'btn btn-sm btn-success m-1';
-                                                                        viewBtn.textContent = 'View';
-                                                                        viewBtn.onclick = function () {
-                                                                            window.open('http://111.118.177.68:8021/AccountInfo/img/' + fileName, '_blank');
+//                                                                if (task.Proof && (task.Proof.startsWith("/usr/local/") || task.Proof.startsWith("/usr/local/"))) 
+
+
+//                                                                if (task.Proof != null && task.Proof.trim() !== "")
+//                                                                {
+//                                                                    var filePaths = task.Proof.split(',');
+//                                                                    filePaths.forEach(function (path)
+//                                                                    {
+//                                                                        var fileName = path.split('img/')[1];
+//                                                                        var viewBtn = document.createElement('button');
+//                                                                        viewBtn.className = 'btn btn-sm btn-success m-1';
+//                                                                        viewBtn.textContent = 'View';
+//                                                                        viewBtn.onclick = function () {
+//                                                                            window.open('http://111.118.177.68:8021/AccountInfo/img/' + fileName, '_blank');
+//                                                                        };
+//                                                                        proofCell.appendChild(viewBtn);
+//                                                                    });
+//                                                                } else
+//                                                                {
+//                                                                    proofCell.textContent = 'N/A';
+//                                                                }
+
+//                                                                var proofCell = document.createElement('td');
+
+
+//                                                                var proofCell = document.createElement('td');
+//
+//                                                                if (task.Proof && task.Proof.trim() !== "") {
+//                                                                    var proofs = task.Proof.split(',');
+//                                                                    var viewAdded = false;
+//
+//                                                                    for (var i = 0; i < proofs.length; i++) {
+//                                                                        var proofPath = proofs[i].trim();
+//
+//                                                                        if (proofPath.startsWith("") || proofPath.startsWith(""))
+//                                                                        {
+//
+////                                                                            var fileName = proofPath.split('img/')[1];
+////                                                                        if (fileName) {
+//
+//                                                                            if (proofPath)
+//                                                                            {
+//                                                                                var viewButton = document.createElement('button');
+//                                                                                viewButton.className = 'btn btn-sm btn-success m-1';
+//                                                                                viewButton.textContent = 'View';
+//                                                                                viewButton.onclick = function () {
+//                                                                                    window.open('http://111.118.177.68:8021/AccountInfo/img/' + proofPath, '_blank');
+//                                                                                };
+//                                                                                proofCell.appendChild(viewButton);
+//                                                                                viewAdded = true;
+//                                                                                break;
+//                                                                            }
+//                                                                        }
+//                                                                    }
+//
+//                                                                    if (!viewAdded) {
+//                                                                        proofCell.textContent = 'N/A';
+//                                                                    }
+//
+//                                                                } else {
+//                                                                    proofCell.textContent = 'N/A';
+//                                                                }
+
+
+                                                                var proofCell = document.createElement('td');
+
+                                                                if (task.Proof && task.Proof.trim() !== "") {
+                                                                    var proofs = task.Proof.split(',');
+                                                                    var validProofs = [];
+                                                                    for (var i = 0; i < proofs.length; i++) {
+                                                                        var proofPath = proofs[i].trim();
+                                                                        if (proofPath.startsWith("") || proofPath.startsWith("")) {
+                                                                            validProofs.push(proofPath);
+                                                                        }
+                                                                    }
+
+                                                                    if (validProofs.length > 0) {
+                                                                        var viewButton = document.createElement('button');
+                                                                        viewButton.className = 'btn btn-sm btn-success m-1';
+                                                                        viewButton.textContent = 'View';
+                                                                        viewButton.onclick = function () {
+                                                                            validProofs.forEach(function (path) {
+                                                                                window.open('http://111.118.177.68:8021/AccountInfo/img/' + path, '_blank');
+                                                                            });
                                                                         };
-                                                                        proofCell.appendChild(viewBtn);
-                                                                    });
-                                                                } else {
+                                                                        proofCell.appendChild(viewButton);
+                                                                    } else {
+                                                                        proofCell.textContent = 'N/A';
+                                                                    }
+                                                                } else
+                                                                {
                                                                     proofCell.textContent = 'N/A';
                                                                 }
 
- 
-
                                                                 row.appendChild(proofCell);
-
 
                                                                 var actionCell = document.createElement('td');
                                                                 var editBtn = document.createElement('button');
@@ -778,8 +811,6 @@
                                                                 actionCell.appendChild(editBtn);
                                                                 row.appendChild(actionCell);
                                                                 tableBody.appendChild(row);
-
-
 
                                                             });
                                                             $('#taskTable').DataTable();
@@ -904,13 +935,29 @@
 
 //                                                                                row.cells[8].innerHTML = '<a href="' + fileUrl + '" target="_blank" class="btn btn-sm btn-success" style="background: #198754; color: white;" >View</a>';
 
-                                                                                let links = "";
-                                                                                for (let i = 0; i < files.length; i++) {
-                                                                                    var fileName = encodeURIComponent(files[i].name);
-                                                                                    var fileUrl = "http://111.118.177.68:8021/AccountInfo/img/" + fileName;
-                                                                                    links += '<a href="' + fileUrl + '" target="_blank" class="btn-success">View</a><br>';
+//                                                                                let links = "";
+//                                                                                for (let i = 0; i < files.length; i++) {
+//                                                                                    var fileName = encodeURIComponent(files[i].name);
+//                                                                                    var fileUrl = "http://111.118.177.68:8021/AccountInfo/img/" + fileName;
+//                                                                                    links += '<a href="' + fileUrl + '" target="_blank" class="btn-success">View</a><br>';
+//                                                                                }
+//                                                                                row.cells[8].innerHTML = links;
+
+                                                                                let allFiles = [];
+
+                                                                                for (let i = 0; i < files.length-1; i++) {
+                                                                                    var fileNameEncoded = encodeURIComponent(files[i].name);
+                                                                                    var fileUrlGenerated = "http://111.118.177.68:8021/AccountInfo/img/" + fileNameEncoded;
+                                                                                    allFiles.push("window.open('" + fileUrlGenerated + "', '_blank')");
                                                                                 }
-                                                                                row.cells[8].innerHTML = links;
+
+                                                                                if (fileName !== "") {
+                                                                                    allFiles.push("window.open('" + fileUrl + "', '_blank')");
+                                                                                }
+
+                                                                                var onClickCode = allFiles.join(";");
+                                                                                var viewButton = "<button class='btn btn-success btn-sm' onclick=\"" + onClickCode + "\">View</button>";
+                                                                                row.cells[8].innerHTML = viewButton;
 
 
                                                                             }
@@ -996,8 +1043,11 @@
                                                 {
 
                                                     var addEmail = document.getElementById('modal-AddEmail').value;
+
                                                     var xhr = new XMLHttpRequest();
+
                                                     var url = "AddEmailUserss?email=" + encodeURIComponent(addEmail);
+
                                                     xhr.open("POST", url, true);
                                                     xhr.onreadystatechange = function () {
                                                         if (xhr.readyState === 4) {
@@ -1014,12 +1064,15 @@
                                                 {
 
                                                     var Task = document.getElementById('modal-AddTask').value;
+
                                                     if (Task === "")
                                                     {
                                                         alert("Please Enter Task Details Field");
                                                         return;
                                                     }
+
                                                     var status = "";
+
                                                     var Priority = document.getElementById('modal-AddPriority').value;
 
                                                     if (Priority === "")

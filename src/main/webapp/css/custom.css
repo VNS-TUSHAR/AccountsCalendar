@@ -1,0 +1,1070 @@
+/*
+Custom style css
+*/
+
+.import_colsize {
+    height: 340px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+label.error {
+    color: #b94646;
+    font-weight: 400;
+    margin-left: 3px;
+}
+
+form .error {
+    border-color: #b94646 !important;
+    float: left !important;
+}
+
+#loading {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    opacity: 0.80;
+    background: url('../image/Spinner-3.gif') center no-repeat #fff;
+}
+
+/* The container-rdo */
+
+.container-rdo {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+
+.container-rdo input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+
+.checkmark-rdo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 0.5px solid #337ab7;
+}
+
+/* On mouse-over, add a grey background color */
+
+.container-rdo:hover input~.checkmark-rdo {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+
+.container-rdo input:checked~.checkmark-rdo {
+    background-color: #337ab7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark-rdo:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.container-rdo input:checked~.checkmark-rdo:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+
+.container-rdo .checkmark-rdo:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+#apr-loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    display: block;
+    opacity: 0.7;
+    z-index: 9999999;
+    width: 50px;
+    height: 50px;
+    background: center no-repeat #ffff;
+    filter: alpha(opacity=75);
+    vertical-align: bottom;
+    /*margin: -32px 0 0 -40px;*/
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    text-align: center;
+}
+
+.content {
+    padding: 10px 10px 0px 10px !important;
+}
+
+/* toast auto width */
+
+.jq-toast-wrap {
+    width: auto;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+/* scrolling auto */
+
+.vertical-menu {
+    width: 200px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.right-box {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    border-collapse: separate;
+    border-color: rgb(210, 214, 222);
+    border-style: solid;
+    border-width: 1px;
+    clear: none;
+    float: none;
+    margin: 0px;
+    outline: rgb(85, 85, 85) none 0px;
+    outline-offset: 0px;
+    padding: 6px 12px;
+    position: static;
+    inset: auto;
+    z-index: auto;
+    vertical-align: baseline;
+    text-align: start;
+    box-sizing: border-box;
+    box-shadow: none;
+    border-radius: 0px;
+    width: 100%;
+    height: 500px;
+}
+
+.img-50 {
+    width: 50px;
+    height: 50px;
+}
+
+.img-25 {
+    width: 25px;
+    height: 25px;
+}
+
+.img-35 {
+    width: 35px;
+    height: 35px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add animation to "page content" */
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+.check-block-scroll {
+    height: 110px;
+    width: 100%;
+    /*border:1px solid aliceblue;*/
+    overflow-y: scroll;
+    /*box-shadow: 0px 0px 0px 1px #719ece;*/
+    box-shadow: 0px 0px 0px 1px #d2d6de;
+    margin-bottom: 1px;
+}
+
+.check-block-selected {
+    width: 100%;
+    box-shadow: 0px 0px 0px 1px #d2d6de;
+    background-color: #d2d6de;
+}
+
+.check-block-selected-view {
+    width: 100%;
+    box-shadow: 0px 0px 0px 1px #d2d6de;
+    background-color: #d2d6de;
+    display: flex !important;
+}
+
+.check-block-scroll .form-check {
+    padding-left: 30px;
+}
+
+.check-block-scroll .form-check-view {
+    padding-left: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.isbloack_inservice {
+    color: green;
+    font-weight: 750;
+}
+
+.isbloack_blocked {
+    color: red;
+    font-weight: 750;
+}
+
+.isbloack_0 {
+    color: green;
+    font-weight: 750;
+}
+
+.isbloack_1 {
+    color: red;
+    font-weight: 750;
+}
+
+.status_1 {
+    color: green;
+    font-weight: 750;
+}
+
+.status_0 {
+    color: red;
+    font-weight: 750;
+}
+
+.error_bold {
+    color: red !important;
+    font-weight: 750;
+}
+
+.text_red {
+    color: red !important;
+}
+
+.text_bold {
+    font-weight: 750;
+}
+
+.text_bold_blue {
+    font-weight: 750;
+    color: rgb(12, 35, 166) !important;
+    font-style: italic;
+}
+
+.text_bold_green {
+    font-weight: 750;
+    color: rgb(16, 102, 73) !important;
+}
+
+.text_bold_orange {
+    font-weight: 750;
+    color: #FFA500;
+}
+
+.text_bold_underline_green {
+    font-weight: 750;
+    color: rgb(16, 102, 73);
+    text-decoration: underline;
+}
+
+.success_bold {
+    color: green;
+    font-weight: 750;
+}
+
+.label_error {
+    color: red;
+    font-weight: 650;
+}
+
+.remove_ul_list {
+    list-style-type: none;
+}
+
+.padding_left_0 {
+    padding-left: 0 !important;
+}
+
+.check_block_scroll_ul {
+    height: auto;
+    width: 100%;
+    max-height: 200px;
+    /*border:1px solid aliceblue;*/
+    overflow-y: scroll;
+    /*box-shadow: 0px 0px 0px 1px #719ece;*/
+    box-shadow: 0px 0px 0px 1px #d2d6de;
+    margin-bottom: 1px;
+}
+
+.check_block_scroll_ul .form-check {
+    padding-left: 5px;
+}
+
+.vendor_check_block_scroll_ul {
+    height: auto;
+    width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+    /*border:1px solid aliceblue;*/
+    overflow-y: auto;
+    /*box-shadow: 0px 0px 0px 1px #719ece;*/
+    box-shadow: 0px 0px 0px 1px #d2d6de;
+    margin-bottom: 1px;
+}
+
+.vendor_check_block_scroll_ul .form-check {
+    padding-left: 30px;
+}
+
+.add_border {
+    border: 1px dotted cornflowerblue;
+}
+
+/*Change process Table CSS*/
+
+.change_processing .dataTables_processing {
+    z-index: 500 !important;
+    border-color: cadetblue;
+    background-color: #ddd;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    /*    z-index:500 !important;
+        border-color: cadetblue;
+        background-color: #ddd;*/
+    padding: 3px !important;
+    color: blueviolet;
+    font-size: 20px;
+    border: 1px solid lightgrey;
+}
+
+/*Dropdwon menu width set*/
+
+.column_selection_scroll {
+    overflow-y: auto;
+    max-height: 187px;
+}
+
+.row_highlight {
+    /*background-color: gainsboro;*/
+    font-weight: 700;
+}
+
+/*th, td {
+    white-space: nowrap !important;
+}*/
+
+.m-l-5 {
+    margin-left: 5px;
+}
+
+.data-control-img {
+    background: url(../../public/image/data/details_open.png) no-repeat;
+    cursor: pointer;
+}
+
+.table-dropdown {
+    box-shadow: none;
+    border-color: #eee;
+}
+
+.table-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+.tab_header_bbcolor {
+    background-color: #ecf0fa;
+}
+
+.dropdown-item-cusotm {
+    padding: 5px 15px !important;
+}
+
+.dropdown-menu-custom label {
+    margin-bottom: 0rem !important;
+}
+
+.hidden {
+    display: none;
+}
+
+/* The container must be positioned relative: */
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+
+.custom-select select {
+    display: none;
+    /*hide original SELECT element: */
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+/* Style items (options): */
+
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form-control-custom {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4d5875;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e1e5ef;
+    border-radius: 3px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 0;
+}
+
+.btn-sm-custom {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+.login-box-custom {
+    padding: 1.5rem;
+    border: 1px solid #e1e5ef;
+    border-radius: 6px;
+}
+
+.form-control-dashboard {
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4d5875;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e1e5ef;
+    border-radius: 3px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 0;
+    /*    margin: 0px 5px 0px 38%;*/
+}
+
+/*list-style: none;
+margin-left: -32px;*/
+
+input.form-control.searchbtn {
+    height: 30px;
+    margin-left: -5px;
+    margin-top: 10px;
+}
+
+select.form-control.searchbtn {
+    height: 30px;
+    margin-left: -5px;
+    margin-top: 10px;
+}
+
+/* Dropdown Button */
+
+.dropbtn1 {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+
+.dropbtn1:hover,
+.dropbtn1:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+
+.dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content1 a:hover {
+    background-color: #ddd
+}
+
+.cursor_move {
+    cursor: move;
+}
+
+.filetemplate_check_block_scroll_ul {
+    height: auto;
+    width: 100%;
+    /*border:1px solid aliceblue;*/
+    overflow-y: auto;
+    /*box-shadow: 0px 0px 0px 1px #719ece;*/
+    box-shadow: 0px 0px 0px 1px #d2d6de;
+}
+
+.filetemplate_check_block_scroll_ul .form-check {
+    padding-left: 30px;
+}
+
+.dropdown-content1.show {
+    display: block;
+}
+
+.dataTables_scrollBody {
+    /* min-height: 250px !important; */
+}
+
+.childTableParent {
+    /*background-color: red !important;  */
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.analyticsTable {
+    width: 100%;
+    margin: 0px 0px 0px 0px !important;
+    padding: 0px 0px 0px 0px !important;
+    border: 0px 0px 0px 0px !important;
+    width: 100% !important;
+}
+
+.table-tr-bold {
+    background-color: #B0BED9;
+}
+
+.panel-main {
+    height: 100% !important;
+}
+
+.panel-top {
+    /*	height: 33% !important; */
+    overflow: auto !important;
+}
+
+.panel-middle {
+    height: 33% !important;
+    overflow: auto !important;
+}
+
+.panel-bottom {
+    height: 33% !important;
+    overflow: auto !important;
+}
+
+/*.analyticsTable th{
+        width: 100%;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+
+}*/
+
+table.dataTable {
+    width: 100% !important;
+}
+
+table.table-bordered.dataTable {
+    border-left-width: 0;
+}
+
+table th,
+table td {
+    white-space: nowrap;
+}
+
+.analyticsTable tr td,
+.analyticsTable tr th {
+    /* padding: 5px !important; */
+    border: 1px solid #dde2ef;
+    width: 65px !important;
+    min-width: 65px !important;
+    font-size: 11px;
+}
+
+.table-responsive .table-responsive {
+    overflow: unset;
+}
+
+.analyticsTable tr td:first-child,
+.analyticsTable tr th:first-child {
+    border-left: 0;
+    width: 400px !important;
+    min-width: 400px !important;
+    max-width: 400px !important;
+}
+
+.analyticsTable tr td:last-child,
+.analyticsTable tr th:last-child {
+    border-right: 0;
+}
+
+#ReportData+.card-body .panel-top:not(#partTop) {
+    overflow: unset !important;
+}
+
+.analyticsReportDivPartB tr td,
+.analyticsReportDivPartB tr th {
+    width: 65px !important;
+    min-width: 65px !important;
+    font-size: 11px !important;
+}
+
+.analyticsReportDivPartB tr td:first-child,
+.analyticsReportDivPartB tr th:first-child {
+    width: 380px !important;
+    min-width: 380px !important;
+    max-width: 380px !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter select {
+    border: 1px solid #e3e8f7;
+    padding: 0px 10px;
+    line-height: 1.539;
+    color: #031b4e;
+    border-radius: 3px;
+    height: 28px;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    padding: 0px 10px;
+    height: 28px;
+}
+
+#BillingCycleDataTable th:not(:first-child),
+#BillingCycleDataTable td:not(:first-child),
+#InvoiceDataTable th,
+#InvoiceDataTable td {
+    min-width: 100px !important;
+}
+
+/* #kt_datatable_analytics_wrapper{min-height: 500px;} */
+
+@media (max-width: 767px) {
+    #ReportCustom .text-right {
+        text-align: left !important;
+    }
+    .breadcrumb-header .content-title {
+        font-size: 13px;
+    }
+    .breadcrumb-header .text-muted {
+        margin-left: 0 !important;
+    }
+    .pd-sm-0-f .text-right,
+    .import_colsize .text-right {
+        text-align: left !important;
+    }
+    .right-content.text-right .btn {
+        margin-bottom: 10px !important;
+    }
+    .right-content.text-right {
+        text-align: left !important;
+        margin-left: 10px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    div.dataTables_wrapper div.dataTables_filter label {
+        white-space: normal;
+    }
+    div.dataTables_wrapper div.dataTables_filter input {
+        margin-left: 0px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    div.dataTables_wrapper div.dataTables_filter select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    div.dataTables_wrapper div.dataTables_filter input+span.pull-right {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 549px) {
+    .desktop-logo {
+        display: initial;
+    }
+    .main-header-left .content-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 344px) {
+    .main-header-left .content-title {
+        font-size: 0.9rem;
+    }
+    .desktop-logo {
+        height: 1.7rem;
+    }
+}
+
+/*CSS for daterangepicker*/
+
+.daterangepicker {
+    z-index: 99999 !important;
+}
+
+.analyticreportfilter .form-control-custom,
+.analyticreportfilter .form-control {
+    height: 30px;
+    padding: 0 15px;
+}
+
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+
+.analyticreportfilter .control-label {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.long-tooltip .tooltip-inner {
+    max-width: fit-content !important;
+    white-space: pre-line !important;
+    text-align: left !important;
+}
+
+.tooltip-gray .tooltip-inner {
+    background-color: #778899;
+}
+
+.tooltip-gray.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: #778899 !important;
+}
+
+.tooltip-gray.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: #778899 !important;
+}
+
+.tooltip-gray.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: #778899 !important;
+}
+
+.panel .bg-gray .panel-title1 a {
+    background: #ecf0fa !important;
+    color: #000 !important;
+}
+
+.panel-heading1.bg-gray a:before {
+    position: relative !important;
+    left: 0px;
+    top: 3px;
+}
+
+.panel-heading1.bg-gray a.collapsed:before {
+    position: relative !important;
+    left: 0px;
+    top: 3px;
+}
+
+.tooltip-gray-block-css {
+    width: fit-content;
+}
+
+.dashboard_cards {
+    flex-wrap: inherit;
+    width: 20.2%;
+}
+
+.img-20 {
+    width: 20px;
+    height: 20px;
+}
+
+.top_bottom_ {
+    float: right !important;
+}
+
+.top_bottom_ a {
+    padding: 7px !important;
+    margin: 7px !important;
+    border: 1px solid #d6dcec !important;
+}
+
+.top_bottom_ a img {
+    width: 18px;
+}
+
+.op_border {
+    padding: 0px 10px;
+    border: 1px solid #d7d7d7;
+}
+
+@media (max-width: 991.98px) {
+    .in_mobile_view_hide {
+        display: none !important;
+    }
+}
+
+.supported_operators .so_main {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.supported_operators .so_main .card-dashboard-eight {
+    padding: 0;
+}
+
+.supported_operators .so_main .card-dashboard-eight .list-group {
+    padding-inline: 10px;
+    border: 1px solid #e2e8f5;
+    border-top: 1px solid #e2e8f5 !important;
+    margin-inline: 5px;
+}
+
+.supported_operators .so_main .card-dashboard-eight .list-group .list-group-item {
+    padding: 0;
+}
+
+.supported_operators .so_main .card-dashboard-eight .list-group .list-group-item p {
+    font-weight: 600 !important;
+}
+
+.supported_operators .so_main .card-dashboard-eight .list-group .list-group-item span {
+    font-weight: normal !important;
+}
+
+.label_textarea {
+    max-height: 150px;
+    overflow: scroll;
+    border: 1px solid #e1e5ef;
+    padding: 5px;
+}
+
+/* basic positioning */
+
+.main_legend {
+    display: flex;
+    justify-content: end;
+}
+
+.custom_legend {
+    list-style: none;
+    width: auto;
+    height: auto;
+}
+
+.custom_legend li {
+    float: left;
+    margin-right: 10px;
+}
+
+.custom_legend span {
+    border: 1px solid #ccc;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+}
+
+/* your colors */
+
+.custom_legend .RECEIVED {
+    background-color: #FFFFFF;
+}
+
+.custom_legend .MARKSENT {
+    background-color: #FFFF00;
+}
+
+.custom_legend .SENT {
+    background-color: #0000FF;
+}
+
+.custom_legend .DELIVERED {
+    background-color: #008000;
+}
+
+/* CSS for Analytics Report search input text */
+
+.analytics_input {
+    width: 96% !important;
+}
+
+.progress {
+    width: 90%;
+    height: 15px;
+    margin: auto;
+}
+
+.progress-bar {
+    height: 15px;
+}
+
+.td_list {
+    max-height: 250px;
+    overflow: scroll;
+}
+
+.view-table thead th {
+    vertical-align: middle !important;
+}

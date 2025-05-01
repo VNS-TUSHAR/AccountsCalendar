@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="0ouAGTkuETYDnMBMcE0FhB6labH1anUhbUbPGvFm" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Title -->
+    <title>RCS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="image/company/01.png" type="image/x-icon" />
+
+    <!-- Icons css -->
+    <link href="assets/css/icons.css" rel="stylesheet">
+
+    <!-- Bootstrap css -->
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Internal Data table css -->
+    <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="assets/plugins/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <link href="assets/plugins/datatable/responsive.bootstrap5.css" rel="stylesheet" />
+    <link href="assets/plugins/datatable/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="assets/plugins/datatable/responsive.dataTables.min.css" rel="stylesheet">
+    <link href="assets/plugins/sweet-alert/sweetalert.css" rel="stylesheet">
+    <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+
+    <!--Internal  Datetimepicker-slider css -->
+    <!--<link rel="stylesheet" href="#css/bootstrap-datetimepicker.min.css">-->
+
+    <!--Internal Sumoselect css-->
+    <link href="assets/plugins/sumoselect/sumoselect.css" rel="stylesheet">
+
+    <!--  Custom Scroll bar-->
+    <link href="assets/plugins/mscrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!--- Style css-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-dark.css" rel="stylesheet">
+    <link href="assets/css/boxed.css" rel="stylesheet">
+    <link href="assets/css/dark-boxed.css" rel="stylesheet">
+
+    <!--  Sidebar css -->
+    <link href="assets/plugins/sidebar/sidebar.css" rel="stylesheet">
+
+    <!--- Internal Morris css-->
+    <link href="assets/plugins/morris.js/morris.css" rel="stylesheet">
+
+    <!--- Style css --->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/boxed.css" rel="stylesheet">
+    <link href="assets/css/dark-boxed.css" rel="stylesheet">
+
+    <!--- Dark-mode css --->
+    <link href="assets/css/style-dark.css" rel="stylesheet">
+
+    <!---Skinmodes css-->
+    <link href="assets/css/skin-modes.css" rel="stylesheet" />
+
+    <!---daterangepicker css-->
+    <link href="css/daterangepicker.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/jquery.toast.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- JQuery min js -->
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+
+   <!--  <script>
+        var app_url = "https://amp.sms24hours.com";
+        var loginID = "3";
+        var gatewayName = "Alpha Messaging Platform";
+        var default_timeout = 1000;
+        //Set default pagination limit
+        var paginationLimit = [
+            [10, 25, 50, 100, 500, 1000, 2000],
+            [10, 25, 50, 100, 500, 1000, 2000],
+        ];
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var jsTrans = {
+            "JS_RULE_ENTITY_LIST": ["Message Text", "Sender Ton", "Sender NPI", "Destination TON", "Destination NPI"],
+            "JS_SENDER_TON_LIST": ["Unknown", "International", "National", "Network Specific", "Subscriber Number", "Alphanumeric", "Abbreviated"],
+            "JS_SENDER_NPI_LIST": {
+                "0": "Unknown",
+                "1": "ISDN\/Telephone numbering plan(E163\/E164)",
+                "3": "Data Numbering plan (X.121)",
+                "4": "Telex Numbering plan(F.69)",
+                "6": "Land Mobile(E.212)",
+                "8": "National Numering plan",
+                "9": "private Numbering Plan",
+                "10": "ERMES Numbering plan (ETSI DE\/PS 3 01-3)",
+                "14": "Internet (IP)",
+                "18": "WAP Client Id (to be defined by WAP Forum)"
+            },
+            "JS_VALIDATE_EXCEPT_SEMICOLON": "constants.validate_except_semicolon",
+            "JS_ENTERPRISE_CUSTOMER": "0",
+            "JS_ENTERPRISE_VENDOR": "1",
+            "JS_ENTERPRISE_RECIPROCAL": "2",
+            "JS_IMPORT_TYPE_DELETE": null,
+            "JS_CONVERSATION_TYPE_LIST_RANDOM_NUMBER": "5",
+            "JS_CONVERSATION_TYPE_LIST_SENDER_ID_TEMPLATE": "6"
+        };
+    </script> -->
+
+    <!-- Internal Data tables -->
+    <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="assets/plugins/datatable/datatables.min.js"></script>
+    <script src="assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script src="assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+    <script src="assets/plugins/datatable/js/jszip.min.js"></script>
+    <script src="assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script src="assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script src="assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+    <script src="assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+    <script src="assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+    <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
+   <!--  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ -->
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+
+    <script src="js/customValidate.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.toast.js"></script>
+    <script src="js/config.js"></script>
+	
+</head>
+
+<body class="main-body">
+    <input type="hidden" id="loginUserID" value="3" />
+    <!-- <div id="loading" style="display: none;"></div> -->
+    <!-- Loader -->
+ <div id="global-loader">
+        <img src="assets/img/loader.svg" class="loader-img" alt="Loader">
+    </div>
+    <!-- /Loader -->
+
+    <!-- Page -->
+    <div class="page">
+
+        <!-- main-header opened -->
+        <div class="main-header nav nav-item hor-header">
+            <div class="container">
+                <div class="main-header-left">
+                    <h4 class="content-title mb-0 my-auto">
+                        <img src="image/company/01.png" class="desktop-logo"> 
+                    </h4>
+                    <a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a>
+                </div>
+                <!-- search -->
+                <div class="main-header-right">
+                    <ul class="nav nav-item  navbar-nav-right ms-auto">
+                        <li class="nav">
+                            <div class="dropdown  nav-itemd-none d-md-flex">
+                                <a href="javascript:void(0)" class="d-flex  nav-item country-flag1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span style="color: black;font-weight: 500;margin-right: 10px;" id="CurrentDateTime" class="align-self-center bg-transparent">
+                                        01/07/2025, 07:31:22 UTC
+                                    </span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-item main-header-notification">
+                            <a class="new nav-link" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span class=" pulse"></span>
+    </a>
+                            <div class="dropdown-menu">
+                                <div class="menu-header-content bg-primary text-start">
+                                    <div class="d-flex">
+                                        <h6 class="dropdown-title mb-1 tx-15 text-white fw-semibold">Notifications</h6>
+                                    </div>
+                                    <p class="dropdown-title-text subtext mb-0 text-white op-6 pb-0 tx-12 ">License Expire Information</p>
+                                </div>
+                                <div class="main-notification-list Notification-scroll">
+                                    <a class="d-flex p-3 border-bottom" href="javascript::void(0)">
+                                        <div class="ms-3">
+                                            <h5 class="notification-label mb-1">Your license will expire in 4 day(s)</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item full-screen fullscreen-button">
+                            <a class="new nav-link full-screen-link" href="javascript:void(0)"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></a>
+                        </li>
+                        <li class="dropdown main-profile-menu nav nav-item nav-link">
+                            <a class="profile-user d-flex" href="">
+                                <div class="demo-avatar-group avatar-list">
+                                    <div class="avatar bg-info rounded-circle">
+                                        AA
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="main-header-profile bg-primary p-3">
+                                    <div class="d-flex wd-100p">
+                                        <div class="main-img-user">
+                                            <div class="demo-avatar-group avatar-list">
+                                                <div class="avatar bg-info rounded-circle">
+                                                    AA
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3 my-auto">
+                                            <h6>Altmish Azam</h6><span>ADMIN</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item" href="#" style=""><i class="bx bx-cog"></i> Edit Profile</a>
+                                <a class="dropdown-item" href="#"><i class="bx bx-log-out"></i> Sign Out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /main-header -->
+
+        <!--Horizontal-main -->
+        <div class="sticky">
+				<div class="card">
+                            <div>
+                                <div class="panel panel-primary tabs-style-2">
+                                    <div class=" tab-menu-heading">
+                                        <div class="tabs-menu1">
+                                            <ul class="nav panel-tabs main-nav-line">
+                                                <li>
+                                                    <a href="javascript:void(0)" onclick="page_redirect('dashboard.html'); return false;" class="nav-link " data-bs-toggle="tab">
+                                        SMS
+                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)" onclick="page_redirect('Whatsapp.html'); return false;" class="nav-link " data-bs-toggle="tab">
+                                        Whatsapp
+                                    </a>
+                                                </li> <li>
+                                                    <a href="javascript:void(0)" onclick="page_redirect('RCS.html'); return false;" class="nav-link active" data-bs-toggle="tab">
+                                        RCS
+                                    </a>
+                                                </li> <li>
+                                                    <a href="javascript:void(0)" onclick="page_redirect('Voice.html'); return false;" class="nav-link " data-bs-toggle="tab">
+                                        Voice
+                                    </a>
+                                                </li> 
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+						
+            <div class="horizontal-main hor-menu clearfix side-header">
+                <div class="horizontal-mainwrapper container clearfix">
+                    <!--Nav-->
+                    <nav class="horizontalMenu clearfix">
+                        <ul class="horizontalMenu-list">
+                            <li aria-haspopup="true">
+                                <a href="#dashboard" class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0V0z" fill="none"/>
+                                    <path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/>
+                                    <path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li aria-haspopup="true">
+                                <a href="#enterprise" class="sub-icon">
+                                    <i class="fas fa-rss"></i>
+                                    Enterprise
+                                </a>
+                            </li>
+                            <li aria-haspopup="true">
+                                <a href="javascript:void(0)" class="sub-icon">
+                                    <i class="fa fa-university"></i>
+                                    Finance
+                                   <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="#transaction/0" class="slide-item">Transaction</a></li>
+                                    <li aria-haspopup="true"><a href="#chargescalc" class="slide-item">Charges Calculator</a></li>
+                                    <li aria-haspopup="true"><a href="#invoices" class="slide-item">Invoice</a></li>
+                                    <li aria-haspopup="true"><a href="#currency" class="slide-item">Currency</a></li>
+                                    <li aria-haspopup="true"><a href="#currencyconversion" class="slide-item">Currency Exchange</a></li>
+                                    <li aria-haspopup="true"><a href="#enterprisebalance" class="slide-item">Enterprise Balance</a></li>
+                                    <li aria-haspopup="true"><a href="#billingcycle" class="slide-item">Billing Cycle</a></li>
+                                    <li aria-haspopup="true"><a href="#vendorinvoice" class="slide-item">Vendor Invoice</a></li>
+                                    <li aria-haspopup="true"><a href="#soa" class="slide-item">SOA</a></li>
+                                </ul>
+                            </li>
+                            <li aria-haspopup="true">
+                                <a href="javascript:void(0)" class="sub-icon">
+                                    <i class="fa fa-table"></i>
+                                    Product
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="#productcategory" class="slide-item">Product Category</a></li>
+                                    <li aria-haspopup="true"><a href="#country" class="slide-item">Country</a></li>
+                                    <li aria-haspopup="true"><a href="#mastercode" class="slide-item">Master Table</a></li>
+                                    <li aria-haspopup="true"><a href="#mccmnc" class="slide-item">MCCMNC Unique Codes</a></li>
+                                    <li aria-haspopup="true"><a href="#moreferencebook" class="slide-item">MO Reference Book</a></li>
+                                    <li aria-haspopup="true" class="sub-menu-sub">
+                                        <span class="horizontalMenu-click02">
+                                            <i class="horizontalMenu-arrow fe fe-chevron-down"></i>
+                                        </span>
+                                        <a href="javascript:void(0)">
+                                            Rate
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li aria-haspopup="true"><a href="#smtpmailaccount" class="slide-item">IMAP Mail Account</a></li>
+                                            <li aria-haspopup="true"><a href="#filetemplate" class="slide-item">File Template</a></li>
+                                            <li aria-haspopup="true"><a href="#autouploadrules" class="slide-item">Auto Upload Rules</a></li>
+                                            <li aria-haspopup="true"><a href="#autouploadreport" class="slide-item">Auto Upload Report</a></li>
+                                            <li aria-haspopup="true"><a href="#ratetable" class="slide-item">Rate Table</a></li>
+                                        </ul>
+                                    </li>
+                                    <li aria-haspopup="true" class="sub-menu-sub">
+                                        <span class="horizontalMenu-click02">
+                                            <i class="horizontalMenu-arrow fe fe-chevron-down"></i>
+                                        </span>
+                                        <a href="javascript:void(0)">
+                                            Route
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li aria-haspopup="true"><a href="#routerulegroup" class="slide-item">Route Rule Group</a></li>
+                                            <li aria-haspopup="true"><a href="#routetable" class="slide-item">Route Table</a></li>
+                                            <li aria-haspopup="true"><a href="#routerule" class="slide-item">Route Rule</a></li>
+                                        </ul>
+                                    </li>
+                                    <li aria-haspopup="true"><a href="#lcr" class="slide-item">LCR</a></li>
+                                    <li aria-haspopup="true"><a href="#reprocessing" class="slide-item">Re-Rating</a></li>
+                                    <li aria-haspopup="true"><a href="#ratelookup" class="slide-item">Rate Lookup</a></li>
+                                </ul>
+                            </li>
+                            <li aria-haspopup="true">
+                                <a href="javascript:void(0)" class="sub-icon">
+                                    <i class="fa fa-sitemap"></i>
+                                    Switch
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="#digitrule" class="slide-item">Translation Rule</a></li>
+                                    <li aria-haspopup="true"><a href="#digitrulegroup" class="slide-item">Translation Rule Group</a></li>
+                                    <li aria-haspopup="true" class="sub-menu-sub">
+                                        <span class="horizontalMenu-click02">
+                                            <i class="horizontalMenu-arrow fe fe-chevron-down"></i>
+                                        </span>
+                                        <a href="javascript:void(0)">
+                                            HLR
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li aria-haspopup="true"><a href="#hlrprovider" class="slide-item">HLR Provider</a></li>
+                                            <li aria-haspopup="true"><a href="#hlrrule" class="slide-item">HLR Rule</a></li>
+                                            <li aria-haspopup="true"><a href="#hlrrulegroup" class="slide-item">HLR Rule Group</a></li>
+                                        </ul>
+                                    </li>
+                                    <li aria-haspopup="true"><a href="#notification" class="slide-item">Notification</a></li>
+                                    <li aria-haspopup="true"><a href="#emaillogs" class="slide-item">Email Logs</a></li>
+                                    <li aria-haspopup="true"><a href="#numberlist" class="slide-item">Number List</a></li>
+                                    <li aria-haspopup="true"><a href="#vendorstats" class="slide-item">Vendor Stats</a></li>
+                                    <li aria-haspopup="true"><a href="#firewall/banip" class="slide-item">Firewall</a></li>
+                                </ul>
+                            </li>
+                           <!--  <li aria-haspopup="true">
+                                <a href="javascript:void(0)" class="sub-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Observation Deck
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="#signalingdeck" class="slide-item">Signaling Deck</a></li>
+                                    <li aria-haspopup="true"><a href="#edrdeck" class="slide-item">EDR Search</a></li>
+                                    <li aria-haspopup="true"><a href="#edrdownloadtemplate" class="slide-item">EDR Template</a></li>
+                                    <li aria-haspopup="true"><a href="#edrdownload" class="slide-item">EDR Download</a></li>
+                                    <li aria-haspopup="true"><a href="#rouetsimulator" class="slide-item">Route Simulator</a></li>
+                                    <li aria-haspopup="true"><a href="#providerstatus" class="slide-item">Network Status</a></li>
+                                    <li aria-haspopup="true"><a href="#networktrace" class="slide-item">PCAP Trace</a></li>
+                                </ul>
+                            </li> -->
+                            <li aria-haspopup="true">
+                                <a href="javascript:void(0)" class="sub-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0V0z" fill="none"/>
+                                    <path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/>
+                                    <path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/>
+                                    </svg>
+                                    Report
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="#report/0" class="slide-item">Master Report</a></li>
+                                    <li aria-haspopup="true"><a href="#report/1" class="slide-item">Customize</a></li>
+                                    <li aria-haspopup="true"><a href="#report/2" class="slide-item">Enterprise</a></li>
+                                    <li aria-haspopup="true"><a href="#report/10" class="slide-item">Master Grouping</a></li>
+                                    <li aria-haspopup="true"><a href="#report/11" class="slide-item">Usage Enterprise</a></li>
+                                    <li aria-haspopup="true"><a href="#analytics" class="slide-item">Analytics Report</a></li>
+                                    <li aria-haspopup="true"><a href="#bilateral" class="slide-item">Bilateral Report</a></li>
+                                </ul>
+                            </li>
+                            <li aria-haspopup="true">
+                                <a href="javascript:void(0)" class="sub-icon ">
+                                    <i class="fa fa-users"></i>
+                                    Admin
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="#businesscompany" class="slide-item">Business Company</a></li>
+                                    <li aria-haspopup="true"><a href="#departments" class="slide-item ">Departments</a></li>
+                                    <li aria-haspopup="true"><a href="#users" class="slide-item">Users</a></li>
+                                    <li aria-haspopup="true"><a href="#guiaccessgroup" class="slide-item ">GUI Access Group</a></li>
+                                    <li aria-haspopup="true"><a href="#audit_trial" class="slide-item">Audit Trail</a></li>
+                                    <li aria-haspopup="true"><a href="#userlicense" class="slide-item">License</a></li>
+                                    <li aria-haspopup="true"><a href="#emailtemplate" class="slide-item">Email Template</a></li>
+                                    <li aria-haspopup="true"><a href="#customerusers" class="slide-item">Customer Portal</a></li>
+                                </ul>
+                            </li>
+                            <li aria-haspopup="true" class="top_bottom_ in_mobile_view_hide">
+                                <a data-bs-placement="left" data-bs-toggle="tooltip-gray" title="Collapase" href="javascript:void(0)" onclick="TopBottomSectionToggle('show')" class="slide-item top_bottom_collapse" style="display: block;">
+                                    <img src="#image/icon/bi-arrows-collapse.svg">
+                                </a>
+                                <a data-bs-placement="left" data-bs-toggle="tooltip-gray" title="Expand" href="javascript:void(0)" onclick="TopBottomSectionToggle('hide')" class="slide-item top_bottom_expand" style="display: none;">
+                                    <img src="#image/icon/bi-arrows-expand.svg">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--Nav-->
+                </div>
+            </div>
+        </div>
+        <!--Horizontal-main -->
+
+        <!-- main-content opened -->
+        <div class="main-content horizontal-content">
+
+            <!-- container opened -->
+            <div class="container">
+
+                <div class="breadcrumb-header justify-content-between">
+                    <div class="my-auto">
+                        <div class="d-flex">
+                            <h4 class="content-title mb-0 my-auto">RCS Dashboard</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex my-xl-auto right-content">
+                        <select id="DashboardTimeInterval" class="form-control-dashboard">
+                        <option value="2 MINUTE">Last 2 Minutes</option>
+                        <option value="5 MINUTE">Last 5 Minutes</option>
+                        <option value="15 MINUTE">Last 15 Minutes</option>
+                        <option value="30 MINUTE">Last 30 Minutes</option>
+                        <option value="1 HOUR">Last Hour</option>
+                        <option value="4 HOUR">Last 4 Hours</option>
+                        <option value="12 HOUR">Last 12 Hours</option>
+                        <option value="24 HOUR">Last 24 Hours</option>
+                    </select> &nbsp;
+                        <button type="button" onclick="refreshDashboard(); return false;" class="btn btn-primary btn-sm margin-r-5">&nbsp;&nbsp;Refresh</button>
+                    </div>
+                </div>
+
+                <div class="row row-sm dashboard_cards">
+                    <div class="">
+                        <div class="card overflow-hidden sales-card bg-primary-gradient">
+                            <div class="ps-3 pt-3 pe-3 pb-2 pt-0">
+                                <div class="">
+                                    <h6 class="mb-3 tx-12 text-white text-uppercase">Today's Attempts</h6>
+                                </div>
+                                <div class="pb-0 mt-0">
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <h4 class="tx-20 fw-bold mb-1 text-white">27187</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="card overflow-hidden sales-card bg-danger-gradient">
+                            <div class="ps-3 pt-3 pe-3 pb-2 pt-0">
+                                <div class="">
+                                    <h6 class="mb-3 tx-12 text-white text-uppercase">Today's Succeeded</h6>
+                                </div>
+                                <div class="pb-0 mt-0">
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <h4 class="tx-20 fw-bold mb-1 text-white">27186</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="card overflow-hidden sales-card bg-success-gradient">
+                            <div class="ps-3 pt-3 pe-3 pb-2 pt-0">
+                                <div class="">
+                                    <h6 class="mb-3 tx-12 text-white text-uppercase">Today's Delivered</h6>
+                                </div>
+                                <div class="pb-0 mt-0">
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <h4 class="tx-20 fw-bold mb-1 text-white">23164</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="card overflow-hidden sales-card bg-warning-gradient">
+                            <div class="ps-3 pt-3 pe-3 pb-2 pt-0">
+                                <div class="">
+                                    <h6 class="mb-3 tx-12 text-white text-uppercase">Online Customers</h6>
+                                </div>
+                                <div class="pb-0 mt-0">
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <h4 class="tx-20 fw-bold mb-1 text-white">142
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="card overflow-hidden sales-card bg-purple-gradient">
+                            <div class="ps-3 pt-3 pe-3 pb-2 pt-0">
+                                <div class="">
+                                    <h6 class="mb-3 tx-12 text-white text-uppercase">Online Vendors</h6>
+                                </div>
+                                <div class="pb-0 mt-0">
+                                    <div class="d-flex">
+                                        <div class="">
+                                            <h4 class="tx-20 fw-bold mb-1 text-white">151
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-sm CustomerEnterpriseDashboard">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="card-title mg-b-0">Customer Enterprise</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <table id="CustomerEnterpriseDashboardDataTable" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom-0" style="width: 150px;">Enterprise (ID)</th>
+                                                <th class="border-bottom-0">Atmpt</th>
+                                                <th class="border-bottom-0">Succ</th>
+                                                <th class="border-bottom-0">Sub</th>
+                                                <th class="border-bottom-0">ASR</th>
+                                                <th class="border-bottom-0">DLR</th>
+                                                <th class="border-bottom-0">Mrgn</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card mg-b-20">
+                            <div class="card-header pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="card-title mg-b-0">Vendor Enterprise</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <table id="VendorEnterpriseDashboardDataTable" class="table key-buttons text-md-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom-0" style="width: 150px;">Enterprise (ID)</th>
+                                                <th class="border-bottom-0">Atmpt</th>
+                                                <th class="border-bottom-0">Succ</th>
+                                                <th class="border-bottom-0">Sub</th>
+                                                <th class="border-bottom-0">ASR</th>
+                                                <th class="border-bottom-0">DLR</th>
+                                                <th class="border-bottom-0">Mrgn</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-sm">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="card-title mg-b-0">Customer Trunk</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <table id="CustomerTrunkDashboardDataTable" class="table key-buttons text-md-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom-0" style="width: 150px;">Trunk (ID)</th>
+                                                <th class="border-bottom-0">Atmpt</th>
+                                                <th class="border-bottom-0">Succ</th>
+                                                <th class="border-bottom-0">Sub</th>
+                                                <th class="border-bottom-0">ASR</th>
+                                                <th class="border-bottom-0">DLR</th>
+                                                <th class="border-bottom-0">Mrgn</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card mg-b-20">
+                            <div class="card-header pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="card-title mg-b-0">Vendor Trunk</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <table id="VendorTrunkDashboardDataTable" class="table key-buttons text-md-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom-0" style="width: 150px;">Trunk (ID)</th>
+                                                <th class="border-bottom-0">Atmpt</th>
+                                                <th class="border-bottom-0">Succ</th>
+                                                <th class="border-bottom-0">Sub</th>
+                                                <th class="border-bottom-0">ASR</th>
+                                                <th class="border-bottom-0">DLR</th>
+                                                <th class="border-bottom-0">Mrgn</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row row-sm">
+                    <div class="col-xl-6">
+                        <div class="card overflow-hidden">
+                            <div class="card-header pb-0">
+                                <div class="row row-sm">
+                                    <div class="col-xl-6 d-flex align-items-center">
+                                        <h4 class="card-title mg-b-0">Customer Enterprise</h4>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="d-flex my-xl-auto right-content">
+                                            <select multiple="multiple" onchange="console.log($(this).children(':selected'))" class="CUST_ENT_SELECT">
+                                                                    
+                                    <option  value="42">Airtel-VNS (42)</option>
+                                                                    
+                                    <option  value="1">Alpha-System-Testing (1)</option>
+                                                                    
+                                    <option  value="59">ANNECTO (59)</option>
+                                                                    
+                                    <option  value="41">Aviro (41)</option>
+                                                                    
+                                    <option  value="12">Avrio Mobility (12)</option>
+                                                                    
+                                    <option  value="56">Bankai (56)</option>
+                                                                    
+                                    <option  value="2">Beenet Communication (2)</option>
+                                                                    
+                                    <option  value="4">BLUE MESSAGGIO (4)</option>
+                                                                    
+                                    <option  value="37">Broadnet (37)</option>
+                                                                    
+                                    <option  value="24">BSG (24)</option>
+                                                                    
+                                    <option  value="31">Byti (31)</option>
+                                                                    
+                                    <option  value="25">Chonry Limited (25)</option>
+                                                                    
+                                    <option  value="39">CMcom (39)</option>
+                                                                    
+                                    <option  value="8">Confiar Technology (8)</option>
+                                                                    
+                                    <option  value="13">Converse Mobile (13)</option>
+                                                                    
+                                    <option  value="45">D7 networks (45)</option>
+                                                                    
+                                    <option  value="26">Decision Telecom (26)</option>
+                                                                    
+                                    <option  value="71">Dexatel (71)</option>
+                                                                    
+                                    <option  value="19">Direct7 Networks (D7Networks) (19)</option>
+                                                                    
+                                    <option  value="57">DireQ Srl (57)</option>
+                                                                    
+                                    <option  value="67">Elfo Sdn Bhd (67)</option>
+                                                                    
+                                    <option  value="3">Etisalat (3)</option>
+                                                                    
+                                    <option  value="65">EvoiceBD (65)</option>
+                                                                    
+                                    <option  value="46">Global (Q Global) (46)</option>
+                                                                    
+                                    <option  value="27">GO MOBIT (27)</option>
+                                                                    
+                                    <option  value="34">Gupshup (34)</option>
+                                                                    
+                                    <option  value="44">Infobip (IBP) (44)</option>
+                                                                    
+                                    <option  value="55">Itnio (55)</option>
+                                                                    
+                                    <option  value="61">Lexico SMS (61)</option>
+                                                                    
+                                    <option  value="51">Lightup (51)</option>
+                                                                    
+                                    <option  value="54">Lightup Network Solutions (54)</option>
+                                                                    
+                                    <option  value="53">Liyf (53)</option>
+                                                                    
+                                    <option  value="64">LMS (64)</option>
+                                                                    
+                                    <option  value="66">LMS Solutions (66)</option>
+                                                                    
+                                    <option  value="9">Loop Mobility (9)</option>
+                                                                    
+                                    <option  value="47">Micro Cloud (47)</option>
+                                                                    
+                                    <option  value="7">Microtalk (7)</option>
+                                                                    
+                                    <option  value="50">Mitto (50)</option>
+                                                                    
+                                    <option  value="63">MONTNETS INTERNATIONAL (63)</option>
+                                                                    
+                                    <option  value="23">MONTY MOBILE (23)</option>
+                                                                    
+                                    <option  value="32">Mr Messaging (32)</option>
+                                                                    
+                                    <option  value="10">Next Mobile (10)</option>
+                                                                    
+                                    <option  value="62">Nextrac (62)</option>
+                                                                    
+                                    <option  value="60">Nortel Telecom Solutions (60)</option>
+                                                                    
+                                    <option  value="70">ONE MESSAGING ( ORION NEOTEKNOLOGI EKOSISTEM) (70)</option>
+                                                                    
+                                    <option  value="40">Passoo (40)</option>
+                                                                    
+                                    <option  value="17">Pineapple Communications (17)</option>
+                                                                    
+                                    <option  value="11">Plivo (11)</option>
+                                                                    
+                                    <option  value="20">PT Oval Indonesia (20)</option>
+                                                                    
+                                    <option  value="69">Razaengage (69)</option>
+                                                                    
+                                    <option  value="18">Six Five Networks (18)</option>
+                                                                    
+                                    <option  value="48">Smartbiz (48)</option>
+                                                                    
+                                    <option  value="58">Smarthive SMS (58)</option>
+                                                                    
+                                    <option  value="5">SmartTech Messaging (5)</option>
+                                                                    
+                                    <option  value="6">SMS Cloud Hub (6)</option>
+                                                                    
+                                    <option  value="38">Tata (38)</option>
+                                                                    
+                                    <option  value="15">Telecall (15)</option>
+                                                                    
+                                    <option  value="29">Telesign (29)</option>
+                                                                    
+                                    <option  value="49">TelKosh-MobiShastra (49)</option>
+                                                                    
+                                    <option  value="36">Terminium (36)</option>
+                                                                    
+                                    <option  value="22">TEWAYS - FZCO (22)</option>
+                                                                    
+                                    <option  value="35">Transland (35)</option>
+                                                                    
+                                    <option  value="16">TXT Bridge (16)</option>
+                                                                    
+                                    <option  value="30">Value First (30)</option>
+                                                                    
+                                    <option  value="14">Vectramind Corporation (14)</option>
+                                                                    
+                                    <option  value="21">Vesper Technology (21)</option>
+                                                                    
+                                    <option  value="43">Virtuoso NetSoft Pvt Ltd (43)</option>
+                                                                    
+                                    <option  value="68">Viva Connect (68)</option>
+                                                                    
+                                    <option  value="28">Yonitech (28)</option>
+                                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="chartjs-wrapper-demo">
+                                        <canvas id="CUST_ENT_CHART"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card mg-b-20 overflow-hidden">
+                            <div class="card-header pb-0">
+                                <div class="row row-sm" style="padding-right: 20px;">
+                                    <div class="col-xl-6 d-flex align-items-center">
+                                        <h4 class="card-title mg-b-0">Vendor Enterprise</h4>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="d-flex my-xl-auto right-content">
+                                            <select multiple="multiple" onchange="console.log($(this).children(':selected'))" class="VEND_ENT_SELECT">
+                                                                    
+                                    <option  value="42">Airtel-VNS (42)</option>
+                                                                    
+                                    <option  value="1">Alpha-System-Testing (1)</option>
+                                                                    
+                                    <option  value="59">ANNECTO (59)</option>
+                                                                    
+                                    <option  value="41">Aviro (41)</option>
+                                                                    
+                                    <option  value="12">Avrio Mobility (12)</option>
+                                                                    
+                                    <option  value="56">Bankai (56)</option>
+                                                                    
+                                    <option  value="2">Beenet Communication (2)</option>
+                                                                    
+                                    <option  value="4">BLUE MESSAGGIO (4)</option>
+                                                                    
+                                    <option  value="37">Broadnet (37)</option>
+                                                                    
+                                    <option  value="24">BSG (24)</option>
+                                                                    
+                                    <option  value="31">Byti (31)</option>
+                                                                    
+                                    <option  value="25">Chonry Limited (25)</option>
+                                                                    
+                                    <option  value="39">CMcom (39)</option>
+                                                                    
+                                    <option  value="8">Confiar Technology (8)</option>
+                                                                    
+                                    <option  value="13">Converse Mobile (13)</option>
+                                                                    
+                                    <option  value="45">D7 networks (45)</option>
+                                                                    
+                                    <option  value="26">Decision Telecom (26)</option>
+                                                                    
+                                    <option  value="71">Dexatel (71)</option>
+                                                                    
+                                    <option  value="19">Direct7 Networks (D7Networks) (19)</option>
+                                                                    
+                                    <option  value="57">DireQ Srl (57)</option>
+                                                                    
+                                    <option  value="67">Elfo Sdn Bhd (67)</option>
+                                                                    
+                                    <option  value="3">Etisalat (3)</option>
+                                                                    
+                                    <option  value="65">EvoiceBD (65)</option>
+                                                                    
+                                    <option  value="46">Global (Q Global) (46)</option>
+                                                                    
+                                    <option  value="27">GO MOBIT (27)</option>
+                                                                    
+                                    <option  value="34">Gupshup (34)</option>
+                                                                    
+                                    <option  value="44">Infobip (IBP) (44)</option>
+                                                                    
+                                    <option  value="55">Itnio (55)</option>
+                                                                    
+                                    <option  value="61">Lexico SMS (61)</option>
+                                                                    
+                                    <option  value="51">Lightup (51)</option>
+                                                                    
+                                    <option  value="54">Lightup Network Solutions (54)</option>
+                                                                    
+                                    <option  value="53">Liyf (53)</option>
+                                                                    
+                                    <option  value="64">LMS (64)</option>
+                                                                    
+                                    <option  value="66">LMS Solutions (66)</option>
+                                                                    
+                                    <option  value="9">Loop Mobility (9)</option>
+                                                                    
+                                    <option  value="47">Micro Cloud (47)</option>
+                                                                    
+                                    <option  value="7">Microtalk (7)</option>
+                                                                    
+                                    <option  value="50">Mitto (50)</option>
+                                                                    
+                                    <option  value="63">MONTNETS INTERNATIONAL (63)</option>
+                                                                    
+                                    <option  value="23">MONTY MOBILE (23)</option>
+                                                                    
+                                    <option  value="32">Mr Messaging (32)</option>
+                                                                    
+                                    <option  value="10">Next Mobile (10)</option>
+                                                                    
+                                    <option  value="62">Nextrac (62)</option>
+                                                                    
+                                    <option  value="60">Nortel Telecom Solutions (60)</option>
+                                                                    
+                                    <option  value="70">ONE MESSAGING ( ORION NEOTEKNOLOGI EKOSISTEM) (70)</option>
+                                                                    
+                                    <option  value="40">Passoo (40)</option>
+                                                                    
+                                    <option  value="17">Pineapple Communications (17)</option>
+                                                                    
+                                    <option  value="11">Plivo (11)</option>
+                                                                    
+                                    <option  value="20">PT Oval Indonesia (20)</option>
+                                                                    
+                                    <option  value="69">Razaengage (69)</option>
+                                                                    
+                                    <option  value="18">Six Five Networks (18)</option>
+                                                                    
+                                    <option  value="48">Smartbiz (48)</option>
+                                                                    
+                                    <option  value="58">Smarthive SMS (58)</option>
+                                                                    
+                                    <option  value="5">SmartTech Messaging (5)</option>
+                                                                    
+                                    <option  value="6">SMS Cloud Hub (6)</option>
+                                                                    
+                                    <option  value="38">Tata (38)</option>
+                                                                    
+                                    <option  value="15">Telecall (15)</option>
+                                                                    
+                                    <option  value="29">Telesign (29)</option>
+                                                                    
+                                    <option  value="49">TelKosh-MobiShastra (49)</option>
+                                                                    
+                                    <option  value="36">Terminium (36)</option>
+                                                                    
+                                    <option  value="22">TEWAYS - FZCO (22)</option>
+                                                                    
+                                    <option  value="35">Transland (35)</option>
+                                                                    
+                                    <option  value="16">TXT Bridge (16)</option>
+                                                                    
+                                    <option  value="30">Value First (30)</option>
+                                                                    
+                                    <option  value="14">Vectramind Corporation (14)</option>
+                                                                    
+                                    <option  value="21">Vesper Technology (21)</option>
+                                                                    
+                                    <option  value="43">Virtuoso NetSoft Pvt Ltd (43)</option>
+                                                                    
+                                    <option  value="68">Viva Connect (68)</option>
+                                                                    
+                                    <option  value="28">Yonitech (28)</option>
+                                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="chartjs-wrapper-demo">
+                                        <canvas id="VEND_ENT_CHART"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-sm">
+                    <div class="col-xl-6">
+                        <div class="card mg-b-20 overflow-hidden">
+                            <div class="card-header pb-0">
+                                <div class="breadcrumb-header justify-content-between mt-2" style="padding-right: 20px;">
+                                    <div class="my-auto">
+                                        <h4 class="card-title mg-b-0">TOP TEN CUSTOMER ENTERPRISE</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="chartjs-wrapper-demo">
+                                        <canvas id="TOP_CUST_ENT_BAR"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card mg-b-20 overflow-hidden">
+                            <div class="card-header pb-0">
+                                <div class="breadcrumb-header justify-content-between mt-2" style="padding-right: 20px;">
+                                    <div class="my-auto">
+                                        <h4 class="card-title mg-b-0">TOP TEN VENDOR ENTERPRISE</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="chartjs-wrapper-demo">
+                                        <canvas id="TOP_VEND_ENT_BAR"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="#assets/plugins/sumoselect/jquery.sumoselect.js"></script>
+                <script>
+                    $(function() {
+                        // DataTable
+                        var columnsList = [{
+                                data: 'LevelData'
+                            },
+                            {
+                                data: 'Attempts'
+                            },
+                            {
+                                data: 'Successfull'
+                            },
+                            {
+                                data: 'Submitted'
+                            },
+                            {
+                                data: 'ASR'
+                            },
+                            {
+                                data: 'VendorDLR'
+                            }
+                        ];
+                        var accessMargin = "1";
+                        if (accessMargin == 1) {
+                            columnsList.push({
+                                data: 'Margin'
+                            });
+                        }
+                        var table = $('#CustomerEnterpriseDashboardDataTable').DataTable({
+                            lengthChange: false,
+                            //            dom: 'Bfrtip',
+                            //            buttons: [
+                            //                'excel', 'csv',
+                            //                {
+                            //                    extend: 'colvis',
+                            //                    text: "Columns selection",
+                            //                    postfixButtons: ['colvisRestore']
+                            //                },
+                            //            ],
+                            //            responsive: true,
+                            "ajax": {
+                                "url": "#dashboard/customerEnterprise",
+                                async: false,
+                                "data": function(d) {
+                                    d.reportType = "CUSTOMER";
+                                    d.interval = $("#DashboardTimeInterval").val();
+                                },
+                                error: function(xhr, status, err) {
+                                    if (xhr.status == 401) {
+                                        window.location.href = "#";
+                                    }
+                                },
+                                beforeSend: function() {
+                                    //formLoading(1);
+                                }
+                            },
+                            serverSide: true,
+                            searching: false,
+                            scrollY: "300px",
+                            scrollX: true,
+                            scrollCollapse: true,
+                            paging: false,
+                            info: false,
+                            columns: columnsList,
+                        });
+                        table.buttons().container().appendTo('#CustomerEnterpriseDashboardDataTable_wrapper .col-md-6:eq(0)');
+                        setInterval(function() {
+                            $('#CustomerEnterpriseDashboardDataTable').DataTable().ajax.reload();
+                        }, 60000);
+
+                        var vendorTable = $('#VendorEnterpriseDashboardDataTable').DataTable({
+                            lengthChange: false,
+                            //            dom: 'Bfrtip',
+                            //            buttons: [
+                            //                'excel', 'csv',
+                            //                {
+                            //                    extend: 'colvis',
+                            //                    text: "Columns selection",
+                            //                    postfixButtons: ['colvisRestore']
+                            //                },
+                            //            ],
+                            //            responsive: true,
+                            "ajax": {
+                                "url": "#dashboard/customerEnterprise",
+                                async: false,
+                                "data": function(d) {
+                                    d.reportType = "VENDOR";
+                                    d.interval = $("#DashboardTimeInterval").val();
+                                },
+                                error: function(xhr, status, err) {
+                                    if (xhr.status == 401) {
+                                        window.location.href = "#";
+                                    }
+                                }
+                            },
+                            serverSide: true,
+                            searching: false,
+                            scrollY: "300px",
+                            scrollX: true,
+                            scrollCollapse: true,
+                            paging: false,
+                            info: false,
+                            columns: columnsList,
+                        });
+                        vendorTable.buttons().container().appendTo('#VendorEnterpriseDashboardDataTable_wrapper .col-md-6:eq(0)');
+                        setInterval(function() {
+                            $('#VendorEnterpriseDashboardDataTable').DataTable().ajax.reload();
+                        }, 60000);
+
+                        var customerTrunkTable = $('#CustomerTrunkDashboardDataTable').DataTable({
+                            lengthChange: false,
+                            //            dom: 'Bfrtip',
+                            //            buttons: [
+                            //                'excel', 'csv',
+                            //                {
+                            //                    extend: 'colvis',
+                            //                    text: "Columns selection",
+                            //                    postfixButtons: ['colvisRestore']
+                            //                },
+                            //            ],
+                            //            responsive: true,
+                            "ajax": {
+                                "url": "#dashboard/customerEnterprise",
+                                async: false,
+                                "data": function(d) {
+                                    d.reportType = "CUSTOMER_TRUNK";
+                                    d.interval = $("#DashboardTimeInterval").val();
+                                },
+                                error: function(xhr, status, err) {
+                                    if (xhr.status == 401) {
+                                        window.location.href = "#";
+                                    }
+                                }
+                            },
+                            serverSide: true,
+                            searching: false,
+                            scrollY: "300px",
+                            scrollX: true,
+                            scrollCollapse: true,
+                            paging: false,
+                            info: false,
+                            columns: columnsList,
+                        });
+                        customerTrunkTable.buttons().container().appendTo('#CustomerTrunkDashboardDataTable_wrapper .col-md-6:eq(0)');
+                        setInterval(function() {
+                            $('#CustomerTrunkDashboardDataTable').DataTable().ajax.reload();
+                        }, 60000);
+
+                        var vendorTrunkTable = $('#VendorTrunkDashboardDataTable').DataTable({
+                            lengthChange: false,
+                            //            dom: 'Bfrtip',
+                            //            buttons: [
+                            //                'excel', 'csv',
+                            //                {
+                            //                    extend: 'colvis',
+                            //                    text: "Columns selection",
+                            //                    postfixButtons: ['colvisRestore']
+                            //                },
+                            //            ],
+                            //            responsive: true,
+                            "ajax": {
+                                "url": "#dashboard/customerEnterprise",
+                                async: false,
+                                "data": function(d) {
+                                    d.reportType = "VENDOR_TRUNK";
+                                    d.interval = $("#DashboardTimeInterval").val();
+                                },
+                                error: function(xhr, status, err) {
+                                    if (xhr.status == 401) {
+                                        window.location.href = "#";
+                                    }
+                                },
+                                beforeSend: function() {
+                                    //formLoading(0);
+                                }
+                            },
+                            serverSide: true,
+                            searching: false,
+                            scrollY: "300px",
+                            scrollX: true,
+                            scrollCollapse: true,
+                            paging: false,
+                            info: false,
+                            columns: columnsList,
+                        });
+                        vendorTrunkTable.buttons().container().appendTo('#VendorTrunkDashboardDataTable_wrapper .col-md-6:eq(0)');
+                        setInterval(function() {
+                            $('#VendorTrunkDashboardDataTable').DataTable().ajax.reload();
+                        }, 60000);
+                    });
+
+                    /**
+                     * refreshDashboard
+                     */
+                    function refreshDashboard() {
+                        formLoading(1);
+                        $('#CustomerEnterpriseDashboardDataTable').DataTable().ajax.reload();
+                        $('#VendorEnterpriseDashboardDataTable').DataTable().ajax.reload();
+                        $('#CustomerTrunkDashboardDataTable').DataTable().ajax.reload();
+                        $('#VendorTrunkDashboardDataTable').DataTable().ajax.reload();
+                        formLoading(0);
+
+                        lodChartData();
+                    }
+
+                    /* LINE CHART */
+
+                    var chart_options = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            duration: 0
+                        },
+                        legend: {
+                            display: false,
+                            labels: {
+                                display: true
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: "#000000",
+                                },
+                                gridLines: {
+                                    display: true,
+                                    color: 'rgba(171, 167, 167,0.2)',
+                                    drawBorder: false
+                                },
+                            }],
+                            xAxes: [{
+                                // display: false,
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: "#000000",
+                                },
+                                gridLines: {
+                                    display: true,
+                                    color: 'rgba(171, 167, 167,0.2)',
+                                    drawBorder: false
+                                },
+                            }]
+                        }
+                    };
+
+                    /** START: ENTERPRISE SELECT: This is multiple selection for the customer enterprise selection */
+                    $('.CUST_ENT_SELECT').SumoSelect({
+                        okCancelInMulti: true,
+                        selectAll: true,
+                        search: true,
+                        searchText: 'SELECT ENTERPRISE',
+                        placeholder: "SELECT ENTERPRISE",
+                        triggerChangeCombined: true,
+                    });
+
+                    var CUST_ENT_SELECTED_LIST = $('.CUST_ENT_SELECT').val();
+                    $('.CUST_ENT_SELECT').change(function(event) {
+                        if ($(this).val().length > 10) {
+                            // if ($(this).val().length > 100) {
+                            var CUST_ENT_SELECTED_LIST_OLD = CUST_ENT_SELECTED_LIST;
+                            alert('Kindly choose maximum 10 enterprises.');
+                            var $this = $(this);
+                            console.log(CUST_ENT_SELECTED_LIST);
+                            $this[0].sumo.unSelectAll();
+                            $.each(CUST_ENT_SELECTED_LIST_OLD, function(i, e) {
+                                $this[0].sumo.selectItem($this.find('option[value="' + e + '"]').index());
+                            });
+                        } else {
+                            CUST_ENT_SELECTED_LIST = $(this).val();
+                        }
+                        console.log(CUST_ENT_SELECTED_LIST);
+                    });
+
+                    var CUST_ENT_CHART = document.getElementById('CUST_ENT_CHART');
+                    window.CUST_ENT_CHART_WIN = new Chart(CUST_ENT_CHART, {
+                        type: 'line',
+                        data: {
+                            labels: [],
+                            datasets: []
+                        },
+                        responsive: true,
+                        options: chart_options
+                    });
+
+                    function getChartDataCE(reportType) {
+                        var apiUrl = "#dashboard/chartData";
+                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                        var enterprise_list = CUST_ENT_SELECTED_LIST;
+                        var json = {
+                            _token: CSRF_TOKEN,
+                            interval: $("#DashboardTimeInterval").val(),
+                            enterprise_list: enterprise_list,
+                            reportType: reportType,
+                        }
+
+                        axios.post(apiUrl, json).then(res => {
+                            if (res.status == 200 && res.data) {
+                                if (res.data && res.data.chart_data) {
+                                    window.CUST_ENT_CHART_WIN.data.labels = res.data.chart_data.labels;
+                                    window.CUST_ENT_CHART_WIN.data.datasets = res.data.chart_data.datasets;
+                                    window.CUST_ENT_CHART_WIN.update();
+                                }
+                            }
+                        }).catch(error => {
+                            console.log(error)
+                        })
+                    }
+
+                    /** END: ENTERPRISE SELECT: This is multiple selection for the customer enterprise selection */
+
+
+
+                    $('.VEND_ENT_SELECT').SumoSelect({
+                        okCancelInMulti: true,
+                        selectAll: true,
+                        search: true,
+                        searchText: 'SELECT ENTERPRISE',
+                        placeholder: "SELECT ENTERPRISE",
+                        triggerChangeCombined: true,
+                    });
+
+                    var VEND_ENT_SELECTED_LIST = $('.VEND_ENT_SELECT').val();
+                    $('.VEND_ENT_SELECT').change(function(event) {
+                        if ($(this).val().length > 10) {
+                            // if ($(this).val().length > 100) {
+                            var VEND_ENT_SELECTED_LIST_OLD = VEND_ENT_SELECTED_LIST;
+                            alert('Kindly choose maximum 10 enterprises.');
+                            var $this = $(this);
+                            console.log(VEND_ENT_SELECTED_LIST);
+                            $this[0].sumo.unSelectAll();
+                            $.each(VEND_ENT_SELECTED_LIST_OLD, function(i, e) {
+                                $this[0].sumo.selectItem($this.find('option[value="' + e + '"]').index());
+                            });
+                        } else {
+                            VEND_ENT_SELECTED_LIST = $(this).val();
+                        }
+                        console.log(VEND_ENT_SELECTED_LIST);
+                    });
+
+                    var VEND_ENT_CHART = document.getElementById('VEND_ENT_CHART');
+                    window.VEND_ENT_CHART_WIN = new Chart(VEND_ENT_CHART, {
+                        type: 'line',
+                        data: {
+                            labels: [],
+                            datasets: []
+                        },
+                        responsive: true,
+                        options: chart_options
+                    });
+
+                    function getChartDataVE(reportType) {
+                        var apiUrl = "#dashboard/chartData";
+                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                        var enterprise_list = VEND_ENT_SELECTED_LIST;
+                        var json = {
+                            _token: CSRF_TOKEN,
+                            interval: $("#DashboardTimeInterval").val(),
+                            enterprise_list: enterprise_list,
+                            reportType: reportType,
+                        }
+
+                        axios.post(apiUrl, json).then(res => {
+                            if (res.status == 200 && res.data) {
+                                if (res.data && res.data.chart_data) {
+                                    window.VEND_ENT_CHART_WIN.data.labels = res.data.chart_data.labels;
+                                    window.VEND_ENT_CHART_WIN.data.datasets = res.data.chart_data.datasets;
+                                    window.VEND_ENT_CHART_WIN.update();
+                                }
+                            }
+                        }).catch(error => {
+                            console.log(error)
+                        })
+                    }
+
+                    /** STACKED BAR CHART **/
+                    var bar_options = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            duration: 0
+                        },
+                        legend: {
+                            display: false,
+                            labels: {
+                                display: true
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: "#000000",
+                                },
+                                gridLines: {
+                                    display: true,
+                                    color: 'rgba(171, 167, 167,0.2)',
+                                    drawBorder: false,
+                                },
+                            }],
+                            xAxes: [{
+                                display: false,
+                                maxBarThickness: 25,
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: "#000000",
+                                },
+                                gridLines: {
+                                    display: false,
+                                    color: 'rgba(171, 167, 167,0.2)',
+                                    drawBorder: false
+                                },
+                            }]
+                        }
+                    };
+
+                    var TOP_CUST_ENT_BAR = document.getElementById('TOP_CUST_ENT_BAR');
+                    window.TOP_CUST_ENT_BAR_ = new Chart(TOP_CUST_ENT_BAR, {
+                        type: 'bar',
+                        data: {
+                            labels: [],
+                            datasets: []
+                        },
+                        responsive: true,
+                        options: bar_options
+                    });
+
+                    function getTopChartDataCE(reportType, limit = 10) {
+                        var apiUrl = "#dashboard/topChartData";
+                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                        var json = {
+                            _token: CSRF_TOKEN,
+                            interval: $("#DashboardTimeInterval").val(),
+                            reportType: reportType,
+                            limit: limit,
+                        }
+                        axios.post(apiUrl, json)
+                            .then(res => {
+                                if (res.status == 200 && res.data) {
+                                    if (res.data && res.data.chart_data) {
+                                        window.TOP_CUST_ENT_BAR_.data = res.data.chart_data;
+                                        window.TOP_CUST_ENT_BAR_.update();
+                                    }
+                                }
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            })
+                    }
+
+                    var TOP_VEND_ENT_BAR = document.getElementById('TOP_VEND_ENT_BAR');
+                    window.TOP_VEND_ENT_BAR_ = new Chart(TOP_VEND_ENT_BAR, {
+                        type: 'bar',
+                        data: {
+                            labels: [],
+                            datasets: []
+                        },
+                        responsive: true,
+                        options: bar_options
+                    });
+
+                    function getTopChartDataVE(reportType, limit = 10) {
+                        var apiUrl = "#dashboard/topChartData";
+                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                        var json = {
+                            _token: CSRF_TOKEN,
+                            interval: $("#DashboardTimeInterval").val(),
+                            reportType: reportType,
+                            limit: limit,
+                        }
+                        axios.post(apiUrl, json)
+                            .then(res => {
+                                if (res.status == 200 && res.data) {
+                                    if (res.data && res.data.chart_data) {
+                                        window.TOP_VEND_ENT_BAR_.data = res.data.chart_data;
+                                        window.TOP_VEND_ENT_BAR_.update();
+                                    }
+                                }
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            })
+                    }
+
+                    function lodChartData() {
+                        getChartDataCE("CUST_ENT");
+                        getChartDataVE("VEND_ENT");
+                        getTopChartDataCE("CUST_ENT_BAR");
+                        getTopChartDataVE("VEND_ENT_BAR");
+                    }
+
+                    lodChartData();
+                    setInterval(() => {
+                        lodChartData();
+                    }, 60000);
+                </script>
+                <div id="confirmTempTableData"></div>
+            </div>
+        </div>
+        <!-- Container closed -->
+
+        <!-- Footer opened -->
+        <div class="main-footer ht-40">
+            <div class="container-fluid pd-t-0-f ht-100p">
+                <span>Copyright © 2025 <a href="javascript:void(0)">VNS</a>.</span>
+            </div>
+        </div>
+        <!-- Footer closed -->
+
+    </div>
+    <!-- End Page -->
+
+    <!-- Back-to-top -->
+    <!--<a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>-->
+    <!-- Bootstrap Bundle js -->
+    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Ionicons js -->
+    <script src="assets/plugins/ionicons/ionicons.js"></script>
+
+    <!-- Moment js -->
+    <script src="assets/plugins/moment/moment.js"></script>
+
+    <!-- Include Date Range Picker v3.14.1 -->
+    <script src="js/daterangepicker.min.js"></script>
+
+
+    <!--Internal Sparkline js -->
+    <script src="#assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Moment js -->
+    <script src="assets/plugins/raphael/raphael.min.js"></script>
+
+    <!-- Internal Select2.min js -->
+    <script src="assets/plugins/select2/js/select2.min.js"></script>
+
+    <!--Internal Sumoselect js-->
+    <script src="#assets/plugins/sumoselect/jquery.sumoselect.js"></script>
+
+    <!-- Internal sweet-alert.min js -->
+    <script src="assets/plugins/sweet-alert/sweetalert.min.js"></script>
+
+    <!--- Internal Accordion Js -->
+    <script src="assets/plugins/accordion/accordion.min.js"></script>
+
+    <!--Internal  jquery-simple-datetimepicker js -->
+    <!--<script src="#js/bootstrap-datetimepicker.min.js"></script>-->
+
+    <!-- Eva-icons js -->
+    <script src="assets/js/eva-icons.min.js"></script>
+
+    <!-- Horizontalmenu js-->
+    <script src="assets/plugins/horizontal-menu/horizontal-menu-2/horizontal-menu.js"></script>
+
+    <!-- Sticky js -->
+    <script src="assets/js/sticky.js"></script>
+    <!-- Tooltip js -->
+    <script src="assets/js/tooltip.js"></script>
+
+    <!-- custom js -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/jquery.vmap.sampledata.js"></script>
+
+
+    <script>
+        $(document).find('.horizontalMenu-list .sub-menu').each(function() {
+            if ($(this).find('li').length == 0) {
+                $(this).parent().hide();
+            }
+        });
+
+
+        function TopBottomSection() {
+            $('.main-header').fadeIn();
+            $('.main-footer').fadeIn();
+            $('.top_bottom_collapse').hide();
+            $('.top_bottom_expand').show();
+        }
+        if ($(window).width() > 991.98) {
+            TopBottomSection()
+        }
+
+
+        setInterval(function() {
+            $.ajax({
+                url: app_url + '/setIntervalData',
+                data: {},
+                method: 'POST',
+                type: 'POST',
+                dataType: 'JSON',
+                success: function(response) {},
+                error: function() {}
+            })
+        }, 10000);
+    </script>
+	<style>
+	.desktop-logo {
+    height: 3rem;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+	</style>
+</body>
+
+</html>

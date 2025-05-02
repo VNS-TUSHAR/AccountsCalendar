@@ -54,7 +54,7 @@ public class dashboard extends HttpServlet {
 //String url = "jdbc:mysql://111.118.177.68:3306/";
 
     // Replace with your actual DB info
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/AccountsInfo"; 
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/AccountsInfo";
 //    private static final String JDBC_URL = "jdbc:mysql://111.118.177.68:3306/AccountsInfo";
     private static final String JDBC_USER = "reports";
     private static final String JDBC_PASSWORD = "reports@#123";
@@ -78,7 +78,7 @@ public class dashboard extends HttpServlet {
             // Connect to database
             conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
             stmt = conn.createStatement();
-            String sql = "SELECT sno,Task, Priority, Status, StartDate, DueDate, PercentComplete, Notes, Proof FROM TaskList";
+            String sql = "SELECT sno,Task, Priority, Status, StartDate, DueDate,CompletionDate ,PercentComplete, Notes, Proof FROM TaskList";
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
@@ -96,6 +96,8 @@ public class dashboard extends HttpServlet {
                 task.put("StartDate", safeGetDate(rs, "StartDate"));
 
                 task.put("DueDate", safeGetDate(rs, "DueDate"));
+
+                task.put("CompletionDate", safeGetDate(rs, "CompletionDate"));
 
                 task.put("PercentComplete", rs.getDouble("PercentComplete"));
 
@@ -261,7 +263,6 @@ public class dashboard extends HttpServlet {
 //            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Request is not multipart/form-data");
 //        }
 //    }
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -270,6 +271,7 @@ public class dashboard extends HttpServlet {
         String status = null;
         Date startDate = null;
         Date dueDate = null;
+        Date CompletionDate = null;
         int percentComplete = 0;
         String notes = null;
         String task = null;
@@ -300,6 +302,11 @@ public class dashboard extends HttpServlet {
                             case "dueDate":
                                 dueDate = Date.valueOf(value);
                                 break;
+
+                            case "completionDate":
+                                CompletionDate = Date.valueOf(value);
+                                break;
+
                             case "percentComplete":
                                 percentComplete = Integer.parseInt(value);
                                 break;
@@ -328,27 +335,76 @@ public class dashboard extends HttpServlet {
                     String sql;
                     PreparedStatement ps;
 
+//                    if (proof.isEmpty()) {
+//                        sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?,CompletionDate=?, PercentComplete = ?, Notes = ? WHERE Task = ?";
+//                        ps = conn.prepareStatement(sql);
+//                        ps.setString(1, status);
+//                        ps.setDate(2, startDate);
+//                        ps.setDate(3, dueDate);
+//                        ps.setDate(4, CompletionDate);
+//                        ps.setInt(5, percentComplete);
+//                        ps.setString(6, notes);
+//                        ps.setString(7, task);
+//                    } else {
+//                        sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?,CompletionDate=?, PercentComplete = ?, Notes = ?, Proof = ? WHERE Task = ?";
+//                        ps = conn.prepareStatement(sql);
+//                        ps.setString(1, status);
+//                        ps.setDate(2, startDate);
+//                        ps.setDate(3, dueDate);
+//                        ps.setDate(4, CompletionDate);
+//                        ps.setInt(5, percentComplete);
+//                        ps.setString(6, notes);
+//                        ps.setString(7, proof);
+//                        ps.setString(8, task);
+//                    }
+
+
                     if (proof.isEmpty()) {
-                        sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?, PercentComplete = ?, Notes = ? WHERE Task = ?";
-                        ps = conn.prepareStatement(sql);
-                        ps.setString(1, status);
-                        ps.setDate(2, startDate);
-                        ps.setDate(3, dueDate);
-                        ps.setInt(4, percentComplete);
-                        ps.setString(5, notes);
-                        ps.setString(6, task);
+                        if (CompletionDate == null) {
+                            sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?, PercentComplete = ?, Notes = ? WHERE Task = ?";
+                            ps = conn.prepareStatement(sql);
+                            ps.setString(1, status);
+                            ps.setDate(2, startDate);
+                            ps.setDate(3, dueDate);
+                            ps.setInt(4, percentComplete);
+                            ps.setString(5, notes);
+                            ps.setString(6, task);
+                        } else {
+                            sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?, CompletionDate = ?, PercentComplete = ?, Notes = ? WHERE Task = ?";
+                            ps = conn.prepareStatement(sql);
+                            ps.setString(1, status);
+                            ps.setDate(2, startDate);
+                            ps.setDate(3, dueDate);
+                            ps.setDate(4, CompletionDate);
+                            ps.setInt(5, percentComplete);
+                            ps.setString(6, notes);
+//                            ps.setString(7, proof);
+                            ps.setString(7, task);
+                        }
+                    } else {
+                        if (CompletionDate == null) {
+                            sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?, PercentComplete = ?, Notes = ? WHERE Task = ?";
+                            ps = conn.prepareStatement(sql);
+                            ps.setString(1, status);
+                            ps.setDate(2, startDate);
+                            ps.setDate(3, dueDate);
+                            ps.setInt(4, percentComplete);
+                            ps.setString(5, notes);
+                            ps.setString(6, task);
+                        } else {
+                            sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?, CompletionDate = ?, PercentComplete = ?, Notes = ?, Proof = ? WHERE Task = ?";
+                            ps = conn.prepareStatement(sql);
+                            ps.setString(1, status);
+                            ps.setDate(2, startDate);
+                            ps.setDate(3, dueDate);
+                            ps.setDate(4, CompletionDate);
+                            ps.setInt(5, percentComplete);
+                            ps.setString(6, notes);
+                            ps.setString(7, proof);
+                            ps.setString(8, task);
+                        }
                     }
-                    else {
-                        sql = "UPDATE TaskList SET Status = ?, StartDate = ?, DueDate = ?, PercentComplete = ?, Notes = ?, Proof = ? WHERE Task = ?";
-                        ps = conn.prepareStatement(sql);
-                        ps.setString(1, status);
-                        ps.setDate(2, startDate);
-                        ps.setDate(3, dueDate);
-                        ps.setInt(4, percentComplete);
-                        ps.setString(5, notes);
-                        ps.setString(6, proof);
-                        ps.setString(7, task);
-                    }
+
                     int rowsUpdated = ps.executeUpdate();
                     System.out.println(rowsUpdated + " row(s) updated.");
                     ps.close();
@@ -380,5 +436,5 @@ public class dashboard extends HttpServlet {
     public String getServletInfo() {
         return "Dashboard data provider";
     }
-    
+
 }

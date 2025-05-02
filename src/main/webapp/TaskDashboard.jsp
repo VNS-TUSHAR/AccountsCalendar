@@ -134,8 +134,10 @@
 
     <body class="main-body">
         <input type="hidden" id="loginUserID" value="3" />
+
         <!-- <div id="loading" style="display: none;"></div> -->
         <!-- Loader -->
+
         <div id="global-loader">
             <img src="assets/img/loader.svg" class="loader-img" alt="Loader">
         </div>
@@ -301,6 +303,7 @@
                                     <th>Status</th>
                                     <th>Start Date</th>
                                     <th>Due Date</th>
+                                    <th>Completion Date</th>
                                     <th>Percent Complete</th>
                                     <!--<th>DONE</th>-->
                                     <th>Notes</th>
@@ -341,7 +344,6 @@
                                                                                     <input type="text" class="form-control" id="modal-status">
                                                                                 </div>-->
 
-
                                         <div class="form-group">
                                             <label><b>Status</b></label> 
                                             <br>   
@@ -365,16 +367,15 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label><b>Completion Date</b></label>
+                                            <input type="date" class="form-control" id="modal-completionDate">
+                                        </div>
+
+
+                                        <div class="form-group">
                                             <label> <b>Complete %</b></label>
                                             <input type="number" class="form-control" id="modal-percentComplete" step="1" required>
                                         </div>
-
-                                        <!--                                        
-                                                                                <div class="form-group"> 
-                                                                                    <label><b>Done?</b></label> 
-                                                                                    <input type="text" class="form-control" id="modal-done"> 
-                                                                                </div>
-                                        -->
 
                                         <div class="form-group">
                                             <label><b>Notes</b></label>
@@ -426,7 +427,6 @@
                                             <input type="text" class="form-control" id="modal-AddTask" required>
                                         </div>
 
-
                                         <div class="form-group">
                                             <label><b>Priority</b></label> 
                                             <br>   
@@ -438,11 +438,12 @@
                                             </select>  
                                         </div>
 
-                                        <!--                                        <div class="form-group" >
-                                                                                    <label><b>Status</b></label>
-                                                                                    <input type="text" class="form-control" id="modal-AddStatus" required>
-                                                                                </div>-->
-
+                                        <!--
+                                        <div class="form-group" >
+                                           <label><b>Status</b></label>
+                                           <input type="text" class="form-control" id="modal-AddStatus" required>
+                                        </div>
+                                        -->
 
                                         <div class="form-group">
                                             <label><b>Start Date</b></label>
@@ -459,10 +460,12 @@
                                                                                     <input type="number" class="form-control" id="modal-AddpercentComplete" step="1">
                                                                                 </div>-->
 
-                                        <!--                                        <div class="form-group">
-                                                                                    <label><b>Done?</b></label>
-                                                                                    <input type="text" class="form-control" id="modal-Adddone">
-                                                                                </div>-->
+                                        <!--
+                                        <div class="form-group">
+                                        <label><b>Done?</b></label>
+                                        <input type="text" class="form-control" id="modal-Adddone">
+                                        </div>
+                                        -->
 
                                         <!--                                        <div class="form-group">
                                                                                     <label><b>Notes</b></label>
@@ -678,16 +681,16 @@
                                                                 var dueDateCell = document.createElement('td');
                                                                 dueDateCell.textContent = task.DueDate || 'N/A';
                                                                 row.appendChild(dueDateCell);
+//CompletionDate
+
+                                                                var completionDateCell = document.createElement('td');
+                                                                completionDateCell.textContent = task.CompletionDate || 'N/A';
+                                                                row.appendChild(completionDateCell);
+
 
                                                                 var percentCompleteCell = document.createElement('td');
                                                                 percentCompleteCell.textContent = task.PercentComplete || 'N/A';
                                                                 row.appendChild(percentCompleteCell);
-
-
-//                                                                var doneCell = document.createElement('td');
-//                                                                doneCell.textContent = task.DONE || 'N/A';
-//                                                                row.appendChild(doneCell);
-
 
                                                                 var notesCell = document.createElement('td');
                                                                 notesCell.textContent = task.Notes || 'N/A';
@@ -830,11 +833,15 @@
 
                                                     document.getElementById('modal-startDate').value = cells[4].textContent;
                                                     document.getElementById('modal-dueDate').value = cells[5].textContent;
-                                                    document.getElementById('modal-percentComplete').value = cells[6].textContent;
+
+                                                    document.getElementById('modal-completionDate').value = cells[6].textContent;
+
+
+                                                    document.getElementById('modal-percentComplete').value = cells[7].textContent;
 
 //                                          document.getElementById('modal-done').value = cells[7].textContent;
 
-                                                    document.getElementById('modal-notes').value = cells[7].textContent;
+                                                    document.getElementById('modal-notes').value = cells[8].textContent;
 
                                                     document.getElementById('modal-proof').value = "";
 
@@ -856,6 +863,8 @@
                                                     var startDate = document.getElementById('modal-startDate').value;
 
                                                     var dueDate = document.getElementById('modal-dueDate').value;
+
+                                                    var completionDate = document.getElementById('modal-completionDate').value;
 
                                                     var percentComplete = document.getElementById('modal-percentComplete').value;
 
@@ -884,12 +893,15 @@
                                                     {
                                                         var formData = new FormData();
 
-
                                                         formData.append("sno", sno);
                                                         formData.append("status", status);
                                                         formData.append("startDate", startDate);
                                                         formData.append("dueDate", dueDate);
                                                         formData.append("percentComplete", percentComplete);
+                                                        formData.append("completionDate", completionDate);
+
+//                                                        completionDate
+
                                                         // formData.append("done", done);  
                                                         formData.append("notes", notes);
                                                         formData.append("task", Task);
@@ -911,62 +923,51 @@
                                                         xhr.open("POST", "dashboard", true);
                                                         xhr.onreadystatechange = function ()
                                                         {
-                                                            if (xhr.readyState === 4) {
+                                                            if (xhr.readyState === 4)
+                                                            {
                                                                 document.getElementById('saveResult').style.display = "none";
                                                                 document.getElementById('cover-spin').style.display = "none";
-                                                                if (xhr.status === 200) {
+                                                                if (xhr.status === 200)
+                                                                {
                                                                     var rows = document.querySelectorAll("table tbody tr");
                                                                     rows.forEach(row =>
                                                                     {
                                                                         if (row.cells[0].textContent.trim() === sno)
                                                                         {
                                                                             row.cells[3].textContent = status;
+                                                                            
                                                                             row.cells[4].textContent = startDate;
+                                                                            
                                                                             row.cells[5].textContent = dueDate;
-                                                                            row.cells[6].textContent = percentComplete;
 
-                                                                            row.cells[7].textContent = notes;
+                                                                            row.cells[6].textContent = completionDate;
+
+                                                                            row.cells[7].textContent = percentComplete;
+
+                                                                            row.cells[8].textContent = notes;
 
                                                                             if (fileName === "")
                                                                             {
 
                                                                             } else
-                                                                            {
-
-//                                                                                row.cells[8].innerHTML = '<a href="' + fileUrl + '" target="_blank" class="btn btn-sm btn-success" style="background: #198754; color: white;" >View</a>';
-
-//                                                                                let links = "";
-//                                                                                for (let i = 0; i < files.length; i++) {
-//                                                                                    var fileName = encodeURIComponent(files[i].name);
-//                                                                                    var fileUrl = "http://111.118.177.68:8021/AccountInfo/img/" + fileName;
-//                                                                                    links += '<a href="' + fileUrl + '" target="_blank" class="btn-success">View</a><br>';
-//                                                                                }
-//                                                                                row.cells[8].innerHTML = links;
-
+                                                                            { 
                                                                                 let allFiles = [];
 
                                                                                 for (let i = 0; i < files.length; i++) {
                                                                                     var fileNameEncoded = encodeURIComponent(files[i].name);
                                                                                     var fileUrlGenerated = "http://111.118.177.68:8021/AccountInfo/img/" + fileNameEncoded;
                                                                                     allFiles.push("window.open('" + fileUrlGenerated + "', '_blank')");
-                                                                                }
-
-//                                                                                if (fileName !== "") {
-//                                                                                    allFiles.push("window.open('" + fileUrl + "', '_blank')");
-//                                                                                }
-
+                                                                                } 
                                                                                 var onClickCode = allFiles.join(";");
                                                                                 var viewButton = "<button class='btn btn-success btn-sm' onclick=\"" + onClickCode + "\">View</button>";
-                                                                                row.cells[8].innerHTML = viewButton;
-
-
+                                                                                row.cells[9].innerHTML = viewButton; 
                                                                             }
 
-                                                                            var editBtn = row.cells[9].querySelector('button');
+                                                                            var editBtn = row.cells[10].querySelector('button');
                                                                             if (editBtn)
                                                                             {
                                                                                 editBtn.disabled = true;
-                                                                                // editBtn.style.cursor = "pointer";  
+                                                                                
                                                                             }
                                                                         }
                                                                     });
@@ -983,8 +984,6 @@
                                                         };
                                                         xhr.send(formData);
                                                     }
-
-//                                                    if (!file)
 
                                                     if (!files)
                                                     {
@@ -1083,9 +1082,14 @@
 
                                                     var startDate = document.getElementById('modal-AddstartDate').value;
                                                     var dueDate = document.getElementById('modal-AdddueDate').value;
+//                                                    var completionDate = document.getElementById('').value;
+
+
                                                     var percentComplete = '';
                                                     var notes = '';
                                                     var fileButton = '';
+                                                    var completionDate = '';
+
 
                                                     var formData = new FormData();
                                                     formData.append("Task", Task);
@@ -1118,6 +1122,7 @@
                                                                         '<td>' + status + '</td>' +
                                                                         '<td>' + startDate + '</td>' +
                                                                         '<td>' + dueDate + '</td>' +
+                                                                        '<td>' + completionDate + '</td>' +
                                                                         '<td>' + (percentComplete || '') + '</td>' +
                                                                         '<td>' + (notes || '') + '</td>' +
                                                                         '<td>' + (fileButton || '') + '</td>' +

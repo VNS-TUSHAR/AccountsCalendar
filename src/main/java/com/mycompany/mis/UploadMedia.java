@@ -45,9 +45,7 @@ public class UploadMedia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("Inside UploadMedia Servlet");
-
+ 
         String uploadPath = getServletContext().getRealPath("") + "img" + File.separator;
         String applicationName = request.getContextPath().replace("/", "");
         uploadPath = uploadPath.replace(applicationName, "AccountInfo");
@@ -146,7 +144,7 @@ public class UploadMedia extends HttpServlet {
 
         String fileName = request.getParameter("fileName");
 
-        sendMail(Task);
+//        sendMail(Task);
 
 //        System.out.println("sno " + sno + "status " + status + " startDate" + startDate + " dueDate " + dueDate + " percentComplete " + percentComplete + " done " + done + " fileName " + fileName);
 ////        /usr/local/apache-tomcat-9.0.84/webapps/AccountInfo/img/

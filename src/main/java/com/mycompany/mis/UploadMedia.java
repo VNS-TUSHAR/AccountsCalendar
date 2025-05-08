@@ -23,14 +23,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriBuilderException;
 
@@ -45,7 +51,7 @@ public class UploadMedia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
+
         String uploadPath = getServletContext().getRealPath("") + "img" + File.separator;
         String applicationName = request.getContextPath().replace("/", "");
         uploadPath = uploadPath.replace(applicationName, "AccountInfo");
@@ -144,7 +150,7 @@ public class UploadMedia extends HttpServlet {
 
         String fileName = request.getParameter("fileName");
 
-//        sendMail(Task);
+        sendMail(Task, fileName);
 
 //        System.out.println("sno " + sno + "status " + status + " startDate" + startDate + " dueDate " + dueDate + " percentComplete " + percentComplete + " done " + done + " fileName " + fileName);
 ////        /usr/local/apache-tomcat-9.0.84/webapps/AccountInfo/img/
@@ -205,7 +211,9 @@ public class UploadMedia extends HttpServlet {
 //        out.flush();
     }
 
-    public static void sendMail(String Task) {
+    public static void sendMail(String Task, String fileName) {
+
+        System.out.println("Inside mail function");
 
         String recipients = getAllusers();
 
@@ -233,13 +241,34 @@ public class UploadMedia extends HttpServlet {
 //            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("tusharmahajan762@gmail.com,vishalk@virtuosonetsoft.com,altmish@virtuosonetsoft.com"));
 
             message.setSubject("Changes");
-            message.setText("There are some changes in the row " + Task);
+
+            // Create message body part with text
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setText("There are some changes in the row: " + Task);
+
+            // Create image part
+            MimeBodyPart imagePart = new MimeBodyPart();
+
+            String filePath = "/usr/local/apache-tomcat-9.0.84/webapps/AccountInfo/img/" + fileName;
+
+            System.out.println("filePath is " + filePath);
+
+            DataSource source = new FileDataSource("/usr/local/apache-tomcat-9.0.84/webapps/AccountInfo/img/" + fileName);
+
+            imagePart.setDataHandler(new DataHandler(source));
+            imagePart.setFileName(fileName);
+
+            // Combine parts into multipart
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(messageBodyPart);
+            multipart.addBodyPart(imagePart);
+
+            // Set content to message
+            message.setContent(multipart);
 
             Transport.send(message);
 
-//            System.out.println("OTP sent to " + userEmail);
         } catch (MessagingException e) {
-//            System.out.println("OTP not sent to " + userEmail);
 
             throw new RuntimeException(e);
         }

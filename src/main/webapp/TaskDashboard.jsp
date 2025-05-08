@@ -7,7 +7,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Title -->
-        <title> Task Management </title>
+        <title> Accounts Calendar </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Favicon -->
         <link rel="icon" href="image/company/01.png" type="image/x-icon" />
@@ -267,13 +267,11 @@
                                             <a href="#transaction/0" class="slide-item text-link" data-bs-toggle="modal" data-bs-target="#addEmailUsers"> Add Users</a>
                                         </li>
                                         <li aria-haspopup="true">
-                                            <!--<a href="ListUser.jsp" class="slide-item text-link" target="_blank">View Users</a>-->
-
-                                            <a href="#" class="slide-item text-link" onclick="openUsersModal()">Show Email Users</a>
-
-                                            <!--<button class="btn btn-primary" onclick="openUsersModal()">Show Email Users</button>-->
-
+                                            <a href="#" class="slide-item text-link" onclick="openUsersModal()">Show Email Users</a>  
                                         </li>
+                                        <li aria-haspopup="true">
+                                            <a href="#" class="slide-item text-link" onclick="openDeleteModal()">Delete Email Users</a>  
+                                        </li> 
                                     </ul>
                                 </li>
 
@@ -288,7 +286,7 @@
             <!-- main-content opened -->
             <div class="main-content horizontal-content">  
                 <div class="container"> 
-                    <h2> Task Management </h2> 
+                    <h2> Accounts Calendar </h2> 
 
                     <!--    <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#addModal">Add Task</button>-->
                     <!--    <table id="taskTable" class="display">-->
@@ -438,11 +436,9 @@
                                             </select>  
                                         </div>
 
-                                        <!--
-                                        <div class="form-group" >
-                                           <label><b>Status</b></label>
-                                           <input type="text" class="form-control" id="modal-AddStatus" required>
-                                        </div>
+                                        <!--<div class="form-group" ><label><b>Status</b></label>
+                                        <input type="text" class="form-control" id="modal-AddStatus" required>
+                                     </div>
                                         -->
 
                                         <div class="form-group">
@@ -521,13 +517,11 @@
 
                                         <p id="addResult" style="display:none; text-align: center;"><b>Please wait...</b></p> 
                                     </form>
-                                </div>
-
+                                </div> 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-primary" id="addUsersBtn">Add User</button>
-                                </div>
-
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -560,6 +554,67 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Users Modal -->
+                    <!--                    <div class="modal fade" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg"> 
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="usersModalLabel">Email Users List</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                    
+                                                    <div class="modal-body">
+                                                        <table id="usersTable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                    
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                    
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+                    <!-- User Delete Modal -->
+                    <div class="modal fade" id="usersDeleteModal" tabindex="-1" aria-labelledby="usersDeleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg"> 
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="usersDeleteModalLabel"> Users </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+
+                                <div class="modal-body">  
+                                    <form id="deleteUser"> 
+                                        <div class="form-group" >
+                                            <label><b>Delete User</b></label> 
+                                            <input type="email" class="form-control" id="deleteEmailModal" name="email" placeholder="Enter Email ID" required title="Please enter a valid Gmail address (e.g., example@gmail.com)">
+                                        </div>
+                                    </form> 
+                                </div> 
+
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="deleteUsers">Delete User</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div> 
+
+                            </div>
+                        </div>
+                    </div>
+
 
                     <script src="#assets/plugins/sumoselect/jquery.sumoselect.js"></script>
 
@@ -599,6 +654,15 @@
                                                     };
                                                     xhr.send();
                                                 }
+
+
+                                                function openDeleteModal()
+                                                {
+                                                    var myModal = new bootstrap.Modal(document.getElementById('usersDeleteModal'));
+                                                    myModal.show();
+                                                }
+
+
 
                                                 function openUsersModal() {
                                                     loadUsersIntoModal();
@@ -836,10 +900,9 @@
 
                                                     document.getElementById('modal-completionDate').value = cells[6].textContent;
 
-
                                                     document.getElementById('modal-percentComplete').value = cells[7].textContent;
 
-//                                          document.getElementById('modal-done').value = cells[7].textContent;
+//                                                  document.getElementById('modal-done').value = cells[7].textContent;
 
                                                     document.getElementById('modal-notes').value = cells[8].textContent;
 
@@ -851,61 +914,72 @@
                                                 }
 
 
+                                                document.getElementById('deleteUsers').addEventListener('click', function ()
+                                                {
+                                                    
+                                                    //  deleteEmail 
+                                                    var emailId = document.getElementById("deleteEmailModal").value;
+
+                                                    var xhr = new XMLHttpRequest();
+                                                    var url = "AddEmailUserss?emailId=" + encodeURIComponent(emailId);
+
+                                                    xhr.open("DELETE", url, true);
+                                                    xhr.onreadystatechange = function () {
+                                                        if (xhr.readyState === 4)
+                                                        {
+                                                            if (xhr.status === 200)
+                                                            {
+                                                                alert(xhr.responseText);
+                                                            } else
+                                                            {
+                                                                alert("Error : " + xhr.responseText);
+                                                            }
+                                                        }
+                                                    };
+                                                    xhr.send();
+                                                });
+
+
 
                                                 document.getElementById('saveChangesBtn').addEventListener('click', function ()
                                                 {
+
                                                     var sno = document.getElementById('modal-sno').value;
-
                                                     var Task = document.getElementById('modal-Task').value;
-
                                                     var status = document.getElementById('modal-status').value;
-
                                                     var startDate = document.getElementById('modal-startDate').value;
-
                                                     var dueDate = document.getElementById('modal-dueDate').value;
-
                                                     var completionDate = document.getElementById('modal-completionDate').value;
-
                                                     var percentComplete = document.getElementById('modal-percentComplete').value;
-
                                                     var notes = document.getElementById('modal-notes').value;
-
                                                     var fileInput = document.getElementById('modal-proof');
-
                                                     var fileInputText = document.getElementById('modal-proof').value;
-
                                                     var fileInputs = document.getElementById('modal-proof').files;
-
-
 //                                                    var file = fileInput.files[0];
 
                                                     var files = fileInputs;
-
 //                                                    if (file === "undefined")
 //                                                    {
 //                                                        file = "";
 //                                                    }
 
+
                                                     document.getElementById('cover-spin').style.display = "unset";
                                                     document.getElementById('saveResult').style.display = "unset";
-
                                                     function sendUpdateRequest(fileUrl, fileName, proofPath)
                                                     {
                                                         var formData = new FormData();
-
                                                         formData.append("sno", sno);
                                                         formData.append("status", status);
                                                         formData.append("startDate", startDate);
                                                         formData.append("dueDate", dueDate);
                                                         formData.append("percentComplete", percentComplete);
                                                         formData.append("completionDate", completionDate);
-
 //                                                        completionDate
 
                                                         // formData.append("done", done);  
                                                         formData.append("notes", notes);
                                                         formData.append("task", Task);
-
                                                         for (let i = 0; i < files.length; i++)
                                                         {
                                                             formData.append("files", files[i]);
@@ -935,47 +1009,58 @@
                                                                         if (row.cells[0].textContent.trim() === sno)
                                                                         {
                                                                             row.cells[3].textContent = status;
-                                                                            
                                                                             row.cells[4].textContent = startDate;
-                                                                            
                                                                             row.cells[5].textContent = dueDate;
-
                                                                             row.cells[6].textContent = completionDate;
-
                                                                             row.cells[7].textContent = percentComplete;
-
                                                                             row.cells[8].textContent = notes;
-
                                                                             if (fileName === "")
                                                                             {
 
                                                                             } else
-                                                                            { 
-                                                                                let allFiles = [];
+                                                                            {
 
+
+// let allFiles = []; 
+// for (let i = 0; i < files.length; i++) {
+// var fileNameEncoded = encodeURIComponent(files[i].name);
+//                                                                                    var fileUrlGenerated = "http://111.118.177.68:8021/AccountInfo/img/" + fileNameEncoded;
+//                                                                                    allFiles.push("window.open('" + fileUrlGenerated + "', '_blank')");
+//                                                                                }
+//                                                                                var onClickCode = allFiles.join(";");
+//                                                                                var viewButton = "<button class='btn btn-success btn-sm' onclick=\"" + onClickCode + "\">View</button>";
+//                                                                                row.cells[9].innerHTML = viewButton;
+
+
+
+                                                                                let fileUrls = [];
                                                                                 for (let i = 0; i < files.length; i++) {
                                                                                     var fileNameEncoded = encodeURIComponent(files[i].name);
                                                                                     var fileUrlGenerated = "http://111.118.177.68:8021/AccountInfo/img/" + fileNameEncoded;
-                                                                                    allFiles.push("window.open('" + fileUrlGenerated + "', '_blank')");
-                                                                                } 
-                                                                                var onClickCode = allFiles.join(";");
-                                                                                var viewButton = "<button class='btn btn-success btn-sm' onclick=\"" + onClickCode + "\">View</button>";
-                                                                                row.cells[9].innerHTML = viewButton; 
+                                                                                    fileUrls.push(fileUrlGenerated);
+                                                                                }
+
+                                                                                let viewBtnId = "viewBtn_" + sno;
+                                                                                let viewButton = "<button class='btn btn-success btn-sm' id='" + viewBtnId + "'>View</button>";
+                                                                                row.cells[9].innerHTML = viewButton;
+                                                                                document.getElementById(viewBtnId).addEventListener('click', function () {
+                                                                                    fileUrls.forEach(url => {
+                                                                                        window.open(url, '_blank');
+                                                                                    });
+                                                                                });
                                                                             }
 
                                                                             var editBtn = row.cells[10].querySelector('button');
                                                                             if (editBtn)
                                                                             {
                                                                                 editBtn.disabled = true;
-                                                                                
                                                                             }
                                                                         }
                                                                     });
-
+                                                                    
                                                                     sendChanges(Task, sno, status, startDate, dueDate, percentComplete, fileName);
-
-                                                                    bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide();
-
+                                                                    
+                                                        bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide();
                                                                 } else
                                                                 {
                                                                     alert("Error updating task.");
@@ -989,16 +1074,12 @@
                                                     {
                                                         var fileUrl = "";
                                                         var fileName = "";
-
                                                         var proofPath = "/usr/local/apache-tomcat-9.0.84/webapps/AccountInfo/img/" + fileName;
-
                                                         sendUpdateRequest(fileUrl, fileName, proofPath);
-
                                                     } else
                                                     {
 
                                                         var uploadForm = new FormData();
-
 //                                                        uploadForm.append("file", files);
 
                                                         var uploadForm = new FormData();
@@ -1009,7 +1090,6 @@
 
                                                         var uploadXhr = new XMLHttpRequest();
                                                         uploadXhr.open("POST", "UploadMedia", true);
-
                                                         uploadXhr.onreadystatechange = function ()
                                                         {
                                                             if (uploadXhr.readyState === 4) {
@@ -1042,11 +1122,8 @@
                                                 {
 
                                                     var addEmail = document.getElementById('modal-AddEmail').value;
-
                                                     var xhr = new XMLHttpRequest();
-
                                                     var url = "AddEmailUserss?email=" + encodeURIComponent(addEmail);
-
                                                     xhr.open("POST", url, true);
                                                     xhr.onreadystatechange = function () {
                                                         if (xhr.readyState === 4) {
@@ -1058,12 +1135,10 @@
                                                     };
                                                     xhr.send();
                                                 });
-
                                                 document.getElementById('addChangesBtn').addEventListener('click', function ()
                                                 {
 
                                                     var Task = document.getElementById('modal-AddTask').value;
-
                                                     if (Task === "")
                                                     {
                                                         alert("Please Enter Task Details Field");
@@ -1071,9 +1146,7 @@
                                                     }
 
                                                     var status = "";
-
                                                     var Priority = document.getElementById('modal-AddPriority').value;
-
                                                     if (Priority === "")
                                                     {
                                                         alert("Please Select Priority of the task");
@@ -1089,32 +1162,24 @@
                                                     var notes = '';
                                                     var fileButton = '';
                                                     var completionDate = '';
-
-
                                                     var formData = new FormData();
                                                     formData.append("Task", Task);
                                                     formData.append("Priority", Priority);
                                                     formData.append("startDate", startDate);
                                                     formData.append("dueDate", dueDate);
-
 //                                                    var url = "AddUsers?Task=" + encodeURIComponent(Task) + "&Priority=" + encodeURIComponent(Priority) + "&startDate=" + encodeURIComponent(startDate) + "&dueDate=" + encodeURIComponent(dueDate);
 
                                                     var xhr = new XMLHttpRequest();
                                                     xhr.open("POST", "AddUsers", true);
-
                                                     xhr.onreadystatechange = function () {
                                                         if (xhr.readyState === 4)
                                                         {
                                                             if (xhr.status === 200)
                                                             {
                                                                 bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
-
                                                                 var tableBody = document.getElementById('taskTable').getElementsByTagName('tbody')[0];
-
                                                                 var row = document.createElement('tr');
-
                                                                 var newSno = tableBody.rows.length + 1;
-
                                                                 row.innerHTML =
                                                                         '<td>' + newSno + '</td>' +
                                                                         '<td>' + Task + '</td>' +
@@ -1136,6 +1201,7 @@
                                                     };
                                                     xhr.send(formData);
                                                 });
+
 
 //                                                function sendAddFile(file)
 //                                                {
@@ -1176,7 +1242,6 @@
                                                 {
                                                     var uploadXhr = new XMLHttpRequest();
                                                     var url = "UploadMedia?status=" + encodeURIComponent(status) + "&startDate=" + encodeURIComponent(startDate) + "&dueDate=" + encodeURIComponent(dueDate) + "&percentComplete=" + encodeURIComponent(percentComplete) + "&fileName=" + encodeURIComponent(fileName) + "&sno=" + encodeURIComponent(sno) + "&Task=" + encodeURIComponent(Task);
-
                                                     uploadXhr.onreadystatechange = function ()
                                                     {
                                                         if (uploadXhr.readyState === 4)

@@ -23,7 +23,6 @@ import org.json.JSONObject;
  *
  * @author tushar
  */
-
 public class AddEmailUserss extends HttpServlet {
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/AccountsInfo";
@@ -66,7 +65,6 @@ public class AddEmailUserss extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -118,14 +116,12 @@ public class AddEmailUserss extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
 
         Connection conn = null;
         Statement stmt = null;
 
         try {
 
-//  System.out.println("Task " + Task + " Priority " + Priority + " Status " + Status + " startDate " + startDate + " dueDate " + dueDate + " percentComplete " + percentComplete + " done " + done + " notes " + notes + " proof " + proof);
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
 
@@ -142,6 +138,56 @@ public class AddEmailUserss extends HttpServlet {
 
             ps.close();
             conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+
+            String email = request.getParameter("emailId");
+
+            System.out.println("Email " + email);
+
+            boolean checkEntry = false;
+
+            String sqlCheck = "select email from AccountUsers where email=?;";
+            PreparedStatement ps1 = conn.prepareStatement(sqlCheck);
+            ps1.setString(1, email);
+
+            ResultSet rs = ps1.executeQuery();
+            if (rs.next()) {
+                checkEntry = true;
+            }
+
+            rs.close();
+            ps1.close();
+
+            if (checkEntry) {
+                String sql = "Delete from AccountUsers where email=?;";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, email);
+                int rowsUpdated = ps.executeUpdate();
+
+                response.getWriter().println("User successfully deleted. ");
+
+                ps.close();
+                conn.close();
+            } else {
+                response.getWriter().println("User is not Present. ");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
